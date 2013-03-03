@@ -1,28 +1,22 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
-<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+				xmlns:panel="urn:import:org.jtaf.website.client.app.ui.views">
 	<ui:style>
 	</ui:style>
 	<g:HTMLPanel>
 		<g:HTMLPanel stylePrimaryName="navbar navbar-inverse navbar-fixed-top">
-	      <g:HTMLPanel stylePrimaryName="navbar-inner">
-	        <g:HTMLPanel stylePrimaryName="container">
-	        </g:HTMLPanel>
-	      </g:HTMLPanel>
-	    </g:HTMLPanel>
-		<g:HTMLPanel stylePrimaryName="row-fluid">
-			<g:HTMLPanel stylePrimaryName="span12">
-			</g:HTMLPanel>
+			<g:HTMLPanel stylePrimaryName="navbar-inner">
+	    		<panel:NavigationContainer />
+		    </g:HTMLPanel>
 		</g:HTMLPanel>
-		<g:HTMLPanel stylePrimaryName="row-fluid">
-			<g:HTMLPanel stylePrimaryName="span2">
-			</g:HTMLPanel>
-			<g:HTMLPanel stylePrimaryName="span8">
-			</g:HTMLPanel>
-			<g:HTMLPanel stylePrimaryName="span2">
-			</g:HTMLPanel>
-		</g:HTMLPanel>
-		<g:HTMLPanel stylePrimaryName="row-fluid">
-			<g:HTMLPanel stylePrimaryName="span12">
+	    <g:HTMLPanel stylePrimaryName="container">
+			<g:HTMLPanel stylePrimaryName="row-fluid">
+				<g:HTMLPanel stylePrimaryName="span4">
+					<panel:LeftContainer />
+				</g:HTMLPanel>
+				<g:HTMLPanel stylePrimaryName="span8">
+					<panel:WallContainer />
+				</g:HTMLPanel>
 			</g:HTMLPanel>
 		</g:HTMLPanel>
 	</g:HTMLPanel>
