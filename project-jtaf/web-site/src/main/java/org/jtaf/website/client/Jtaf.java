@@ -15,6 +15,7 @@ public class Jtaf implements EntryPoint {
 	public void onModuleLoad() {
 		Backbone backbone = injector.getBackbone();
 		RootLayoutPanel.get().add(backbone);
+		
 	}
 
 }
