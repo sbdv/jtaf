@@ -11,6 +11,7 @@ public class Jtaf implements EntryPoint {
 	public void onModuleLoad() {
 		Backbone backbone = new Backbone();
 		RootLayoutPanel.get().add(backbone);
+		
 	}
 
 }
