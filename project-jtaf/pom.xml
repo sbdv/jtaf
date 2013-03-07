@@ -13,6 +13,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<gwt-version>2.5.0</gwt-version>
+		<gin-version>2.0.0</gin-version>
 		<java-version>1.7</java-version>
 		<maven-plugin-version>3.0</maven-plugin-version>
 		<maven-resource-plugin-version>2.6</maven-resource-plugin-version>
@@ -36,6 +37,11 @@
 				<artifactId>requestfactory-server</artifactId>
 				<version>${gwt-version}</version>
 				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.gwt.inject</groupId>
+				<artifactId>gin</artifactId>
+				<version>2.0.0</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
