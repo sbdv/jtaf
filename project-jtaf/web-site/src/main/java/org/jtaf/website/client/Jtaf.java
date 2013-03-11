@@ -1,6 +1,6 @@
 package org.jtaf.website.client;
 
-import org.jtaf.website.client.app.ui.resources.AppGinjector;
+import org.jtaf.website.client.app.ui.gin.JtafGinjector;
 import org.jtaf.website.client.app.ui.views.Backbone;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
 
 public class Jtaf implements EntryPoint {
 	
-	private final AppGinjector injector = GWT.create(AppGinjector.class);
+	private final JtafGinjector injector = GWT.create(JtafGinjector.class);
 
 	@Override
 	public void onModuleLoad() {
