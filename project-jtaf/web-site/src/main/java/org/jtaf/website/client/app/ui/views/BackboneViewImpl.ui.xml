@@ -12,7 +12,7 @@
 	    <g:HTMLPanel stylePrimaryName="container">
 			<g:HTMLPanel stylePrimaryName="row-fluid">
 				<g:HTMLPanel stylePrimaryName="span4">
-					<panel:LeftContainer />
+					<panel:LeftContainer ui:field="leftContainer"/>
 				</g:HTMLPanel>
 				<g:HTMLPanel stylePrimaryName="span8">
 					<panel:WallContainer />

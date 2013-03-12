@@ -4,5 +4,8 @@
 	<ui:style>
 	</ui:style>
 	<g:HTMLPanel>
+		<g:SimplePanel ui:field="simplePanel">
+			
+		</g:SimplePanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

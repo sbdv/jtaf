@@ -1,24 +1,16 @@
 package org.jtaf.website.client.app.ui.views;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Widget;
-import com.google.inject.Inject;
+import com.google.gwt.place.shared.Place;
+import com.google.gwt.user.client.ui.AcceptsOneWidget;
+import com.google.gwt.user.client.ui.IsWidget;
 
-public class BackboneView extends Composite implements Backbone {
+public interface BackboneView extends IsWidget {
 
-	private static BackboneUiBinder uiBinder = GWT
-			.create(BackboneUiBinder.class);
-	private Backbone.Activity backboneActivity;
+    AcceptsOneWidget getLeftContainer();
 
-	interface BackboneUiBinder extends UiBinder<Widget, BackboneView> {
-	}
+    public interface Activity {
 
+        void go(Place place);
+    }
 
-	@Inject
-	public BackboneView(Backbone.Activity backboneActivity) {
-		initWidget(uiBinder.createAndBindUi(this));
-		this.backboneActivity = backboneActivity;
-	}
 }
