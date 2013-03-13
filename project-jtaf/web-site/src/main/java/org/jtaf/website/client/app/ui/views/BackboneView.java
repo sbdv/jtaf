@@ -8,7 +8,9 @@ public interface BackboneView extends IsWidget {
 
     AcceptsOneWidget getLeftContainer();
 
-    public interface Activity {
+    void setPresenter(Presenter presenter);
+
+    public interface Presenter {
 
         void go(Place place);
     }

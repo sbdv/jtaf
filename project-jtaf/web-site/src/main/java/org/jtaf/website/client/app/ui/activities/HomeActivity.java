@@ -7,25 +7,23 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
-import com.google.gwt.user.client.ui.SimplePanel;
-import com.google.gwt.widget.client.TextButton;
 import com.google.inject.Inject;
 
-public class BackboneActivity extends AbstractActivity implements BackboneView.Activity {
+public class HomeActivity extends AbstractActivity implements BackboneView.Presenter {
 
     private final PlaceController placeController;
+    private final BackboneView backBoneView;
 
     @Inject
-    public BackboneActivity(PlaceController placeController) {
+    public HomeActivity(PlaceController placeController, BackboneView backbone) {
         this.placeController = placeController;
+        this.backBoneView = backbone;
     }
 
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
-        SimplePanel sPanel = new SimplePanel();
-        sPanel.setSize("100%", "250px");
-        sPanel.add(new TextButton("Test"));
-        panel.setWidget(sPanel);
+        panel.setWidget(backBoneView);
+        backBoneView.setPresenter(this);
     }
 
     @Override

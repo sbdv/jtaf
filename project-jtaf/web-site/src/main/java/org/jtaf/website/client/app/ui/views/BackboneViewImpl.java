@@ -6,26 +6,28 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.inject.Inject;
 
 public class BackboneViewImpl extends Composite implements BackboneView {
 
     private static BackboneUiBinder uiBinder = GWT.create(BackboneUiBinder.class);
-    private final BackboneView.Activity backboneActivity;
+    private BackboneView.Presenter backboneActivity;
     @UiField
     LeftContainer leftContainer;
 
     interface BackboneUiBinder extends UiBinder<Widget, BackboneViewImpl> {
     }
 
-    @Inject
-    public BackboneViewImpl(BackboneView.Activity backboneActivity) {
+    public BackboneViewImpl() {
         initWidget(uiBinder.createAndBindUi(this));
-        this.backboneActivity = backboneActivity;
     }
 
     @Override
     public AcceptsOneWidget getLeftContainer() {
         return leftContainer.simplePanel;
+    }
+
+    @Override
+    public void setPresenter(Presenter presenter) {
+        this.backboneActivity = presenter;
     }
 }
