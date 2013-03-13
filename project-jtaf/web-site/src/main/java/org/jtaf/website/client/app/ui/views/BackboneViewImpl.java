@@ -3,8 +3,8 @@ package org.jtaf.website.client.app.ui.views;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 
 public class BackboneViewImpl extends Composite implements BackboneView {
@@ -22,8 +22,8 @@ public class BackboneViewImpl extends Composite implements BackboneView {
     }
 
     @Override
-    public AcceptsOneWidget getLeftContainer() {
-        return leftContainer.simplePanel;
+    public HasWidgets getLeftContainer() {
+        return leftContainer.basePanel;
     }
 
     @Override

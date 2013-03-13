@@ -1,11 +1,8 @@
 package org.jtaf.website.client.app.ui.gin;
 
-import org.jtaf.website.client.app.ui.activities.ActivityManagerProvider;
-import org.jtaf.website.client.app.ui.activities.Home;
 import org.jtaf.website.client.app.ui.activities.HomeActivity;
-import org.jtaf.website.client.app.ui.activities.PlaceControllerProvider;
-import org.jtaf.website.client.app.ui.activities.PlaceHistoryHandlerProvider;
-import org.jtaf.website.client.app.ui.places.JtafActivityMapper;
+import org.jtaf.website.client.app.ui.activities.JtafActivityMapper;
+import org.jtaf.website.client.app.ui.resources.JtafResources;
 import org.jtaf.website.client.app.ui.views.BackboneView;
 import org.jtaf.website.client.app.ui.views.BackboneViewImpl;
 
@@ -29,6 +26,7 @@ public class JtafGinModule extends AbstractGinModule {
         bind(ActivityMapper.class).to(JtafActivityMapper.class).in(Singleton.class);
         bind(ActivityManager.class).toProvider(ActivityManagerProvider.class).in(Singleton.class);
         bind(PlaceHistoryHandler.class).toProvider(PlaceHistoryHandlerProvider.class).in(Singleton.class);
+        bind(JtafResources.class).in(Singleton.class);
         // view
         bind(BackboneView.class).to(BackboneViewImpl.class).in(Singleton.class);
         // activity

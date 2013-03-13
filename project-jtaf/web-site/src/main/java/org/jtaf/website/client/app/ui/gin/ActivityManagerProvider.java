@@ -1,4 +1,4 @@
-package org.jtaf.website.client.app.ui.activities;
+package org.jtaf.website.client.app.ui.gin;
 
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;

@@ -3,9 +3,6 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
 	</ui:style>
-	<g:HTMLPanel>
-		<g:SimplePanel ui:field="simplePanel">
-			
-		</g:SimplePanel>
+	<g:HTMLPanel ui:field="basePanel">
 	</g:HTMLPanel>
 </ui:UiBinder> 

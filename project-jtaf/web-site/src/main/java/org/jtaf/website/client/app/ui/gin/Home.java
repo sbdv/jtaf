@@ -1,4 +1,4 @@
-package org.jtaf.website.client.app.ui.activities;
+package org.jtaf.website.client.app.ui.gin;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
