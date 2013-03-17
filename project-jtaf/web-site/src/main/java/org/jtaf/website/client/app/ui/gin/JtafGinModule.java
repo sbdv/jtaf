@@ -2,6 +2,7 @@ package org.jtaf.website.client.app.ui.gin;
 
 import org.jtaf.website.client.app.ui.activities.HomeActivity;
 import org.jtaf.website.client.app.ui.activities.JtafActivityMapper;
+import org.jtaf.website.client.app.ui.component.Status;
 import org.jtaf.website.client.app.ui.resources.JtafResources;
 import org.jtaf.website.client.app.ui.views.BackboneView;
 import org.jtaf.website.client.app.ui.views.BackboneViewImpl;

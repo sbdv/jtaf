@@ -1,5 +1,6 @@
 package org.jtaf.website.client.app.ui.activities;
 
+import org.jtaf.website.client.app.ui.component.Status;
 import org.jtaf.website.client.app.ui.resources.JtafResources;
 import org.jtaf.website.client.app.ui.views.BackboneView;
 
@@ -30,6 +31,10 @@ public class HomeActivity extends AbstractActivity implements BackboneView.Prese
         Image img = new Image(resources.signInWithGoogle());
         backBoneView.getLeftContainer().add(img);
         backBoneView.setPresenter(this);
+        backBoneView.getWallContainer().add(new Status(resources));
+        backBoneView.getWallContainer().add(new Status(resources));
+        backBoneView.getWallContainer().add(new Status(resources));
+        backBoneView.getWallContainer().add(new Status(resources));
     }
 
     @Override

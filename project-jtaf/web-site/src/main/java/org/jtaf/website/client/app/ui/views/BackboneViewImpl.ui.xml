@@ -15,7 +15,7 @@
 					<panel:LeftContainer ui:field="leftContainer"/>
 				</g:HTMLPanel>
 				<g:HTMLPanel stylePrimaryName="span8">
-					<panel:WallContainer />
+					<panel:WallContainer ui:field="wallContainer"/>
 				</g:HTMLPanel>
 			</g:HTMLPanel>
 		</g:HTMLPanel>

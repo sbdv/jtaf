@@ -7,5 +7,8 @@ public interface JtafResources extends ClientBundle {
 	
 	@Source("images/sign-in-with-google.png")
 	ImageResource signInWithGoogle();
+	
+	@Source("images/jtaf.png")
+	ImageResource jtafLogo();
 
 }

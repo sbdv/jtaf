@@ -4,6 +4,6 @@
 	<ui:style>
 		
 	</ui:style>
-	<g:HTMLPanel>
+	<g:HTMLPanel ui:field="basePanel">
 	</g:HTMLPanel>
 </ui:UiBinder> 

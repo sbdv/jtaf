@@ -13,6 +13,8 @@ public class BackboneViewImpl extends Composite implements BackboneView {
     private BackboneView.Presenter backboneActivity;
     @UiField
     LeftContainer leftContainer;
+    @UiField
+    WallContainer wallContainer;
 
     interface BackboneUiBinder extends UiBinder<Widget, BackboneViewImpl> {
     }
@@ -30,4 +32,9 @@ public class BackboneViewImpl extends Composite implements BackboneView {
     public void setPresenter(Presenter presenter) {
         this.backboneActivity = presenter;
     }
+
+	@Override
+	public HasWidgets getWallContainer() {
+		return wallContainer.basePanel;
+	}
 }

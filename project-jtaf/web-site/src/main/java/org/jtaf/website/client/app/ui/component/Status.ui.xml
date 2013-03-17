@@ -1,0 +1,30 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>		
+	</ui:style>
+	<g:HTMLPanel stylePrimaryName="status alert">
+		<g:HTMLPanel stylePrimaryName="row-fluid">
+			<table>
+				<tr>
+					<th rowspan="3">
+						<g:Image ui:field="avatar" width="70px" height="70px" />
+					</th>
+					<th>
+						<g:Anchor ui:field="pseudo" stylePrimaryName="pull-left" href="#">Prénom Nom <em>Pseudo</em></g:Anchor>
+						<g:Label ui:field="date" stylePrimaryName="pull-right">Date du status</g:Label>
+					</th>	
+				</tr>
+				<tr>
+					<td>
+						<g:HTMLPanel stylePrimaryName="well status-content">
+							<p>
+								Ceci est un test de status !
+							</p>
+						</g:HTMLPanel>
+					</td>
+				</tr>
+			</table>
+		</g:HTMLPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

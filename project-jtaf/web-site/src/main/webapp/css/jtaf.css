@@ -2,3 +2,27 @@ body{
 	padding-top: 50px;
 	padding-bottom: 40px;
 }
+
+.status{
+	padding: 8px 14px;
+	margin-bottom: 5px;
+}
+
+.status th:FIRST-CHILD{
+	width: 70px;
+}
+
+.status .well{
+	padding: 5px;
+	margin-bottom: 0;
+}
+
+.status-content{
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+
+.status-content *{
+	max-width: 100%;
+}
