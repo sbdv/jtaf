@@ -31,5 +31,33 @@
 			<groupId>com.google.gwt.inject</groupId>
 			<artifactId>gin</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+		  	<groupId>org.springframework.security</groupId>
+		  	<artifactId>spring-security-config</artifactId>
+		</dependency>
+		<dependency>
+		  	<groupId>org.springframework.security</groupId>
+		  	<artifactId>spring-security-taglibs</artifactId>	
+		</dependency>
+		<dependency>
+		  	<groupId>org.apache.commons</groupId>
+		  	<artifactId>commons-lang3</artifactId>
+		</dependency>
 	</dependencies>
 </project>
