@@ -12,7 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<gwt-version>2.4.0</gwt-version>
+		<gwt-version>2.5.0</gwt-version>
 		<gwt.oauth2-version>0.2</gwt.oauth2-version>
 		<gin-version>2.0.0</gin-version>
 		<java-version>1.7</java-version>
@@ -22,6 +22,7 @@
 		<maven-resource-plugin-version>2.6</maven-resource-plugin-version>
 		<commons.lang-version>3.1</commons.lang-version>
 	</properties>
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

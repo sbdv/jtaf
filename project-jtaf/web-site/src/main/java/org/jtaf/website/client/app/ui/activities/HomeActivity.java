@@ -28,7 +28,7 @@ public class HomeActivity extends AbstractActivity implements BackboneView.Prese
 
     // This app's personal client ID assigned by the Google APIs Console
     // (http://code.google.com/apis/console).
-    private static final String GOOGLE_CLIENT_ID = "452237527106.apps.googleusercontent.com";
+    private static final String GOOGLE_CLIENT_ID = "264546229669.apps.googleusercontent.com";
 
     // The auth scope being requested. This scope will allow the application to
     // identify who the authenticated user is.
