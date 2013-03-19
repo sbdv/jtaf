@@ -17,8 +17,7 @@
 	
 	<!-- HTTP security configurations -->
 	<security:http auto-config="false" create-session="ifRequired" disable-url-rewriting="true" entry-point-ref="gwtAwareAuthenticationEntryPoint">
-		<security:intercept-url pattern="/jtaf.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />	
-
+		<security:intercept-url pattern="/*" access="IS_AUTHENTICATED_ANONYMOUSLY" />	
 	</security:http>	
 	
 	<bean id ="gwtAwareAuthenticationEntryPoint" class="org.jtaf.website.security.GwtAwareAuthenticationEntryPoint" />
