@@ -49,6 +49,7 @@ public class HomeActivity extends AbstractActivity implements BackboneView.Prese
             @Override
             public void onClick(ClickEvent event) {
                 final AuthRequest req = new AuthRequest(GOOGLE_AUTH_URL, GOOGLE_CLIENT_ID).withScopes(PLUS_ME_SCOPE);
+                AUTH.setOAuthWindowUrl("");
                 AUTH.login(req, new Callback<String, Throwable>() {
                     @Override
                     public void onSuccess(String token) {
