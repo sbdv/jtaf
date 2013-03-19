@@ -1,4 +1,4 @@
-package org.jtaf.website.security;
+package org.jtaf.website.security.client;
 
 /**
  * Interface des messages sécurisés

@@ -5,6 +5,7 @@
 	<inherits name="com.google.gwt.inject.Inject"/>
 	<inherits name="com.google.gwt.activity.Activity"/>
 	<source path="client" />
+	<source path="security/client" />
 	
 	<entry-point class="org.jtaf.website.client.Jtaf" />
 </module>

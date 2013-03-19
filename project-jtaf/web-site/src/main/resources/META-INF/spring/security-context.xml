@@ -23,10 +23,11 @@
 	
 	<bean id ="gwtAwareAuthenticationEntryPoint" class="org.jtaf.website.security.GwtAwareAuthenticationEntryPoint" />
 	
+	<!-- config de base pour un security custom, à remplacer par un authenticationManager custom -->
 	<security:authentication-manager >
 		<security:authentication-provider>
 			<security:user-service>
-				<security:user name="math" authorities="ROLE_ADMIN" password="math"/>
+				<security:user name="math" authorities="ROLE_ADMIN"/>
 			</security:user-service>
 		</security:authentication-provider>
   </security:authentication-manager>

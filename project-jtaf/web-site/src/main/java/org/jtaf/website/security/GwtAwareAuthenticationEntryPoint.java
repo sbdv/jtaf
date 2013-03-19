@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
 
 import org.apache.commons.lang3.StringUtils;
+import org.jtaf.website.security.client.SecurityResponseMessage;
+import org.jtaf.website.security.client.SecurityResponseMessageFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -18,6 +20,13 @@ import com.google.web.bindery.autobean.shared.AutoBeanCodex;
 import com.google.web.bindery.autobean.shared.AutoBeanUtils;
 import com.google.web.bindery.autobean.vm.AutoBeanFactorySource;
 
+/**
+ * Utilisé dans l'ExceptionTranslationFilter de spring security, permet de wrapper les messages d'erreur du serveur pour
+ * être compréhensible côté GWT
+ * 
+ * @author mbellang
+ * 
+ */
 public class GwtAwareAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
     private final String reasonPhrase;
