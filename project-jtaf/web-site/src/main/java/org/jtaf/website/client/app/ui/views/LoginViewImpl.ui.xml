@@ -3,6 +3,7 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
 	</ui:style>
-	<g:HTMLPanel ui:field="basePanel">
+	<g:HTMLPanel stylePrimaryName="row-fluid">
+		<g:Image ui:field="imgLogin"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 

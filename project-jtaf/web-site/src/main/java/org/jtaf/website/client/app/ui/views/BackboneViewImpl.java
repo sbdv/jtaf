@@ -4,6 +4,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -12,9 +13,9 @@ public class BackboneViewImpl extends Composite implements BackboneView {
     private static BackboneUiBinder uiBinder = GWT.create(BackboneUiBinder.class);
     private BackboneView.Presenter backboneActivity;
     @UiField
-    LeftContainer leftContainer;
+    HTMLPanel baseProfil;
     @UiField
-    WallContainer wallContainer;
+    HTMLPanel baseWall;
 
     interface BackboneUiBinder extends UiBinder<Widget, BackboneViewImpl> {
     }
@@ -24,8 +25,8 @@ public class BackboneViewImpl extends Composite implements BackboneView {
     }
 
     @Override
-    public HasWidgets getLeftContainer() {
-        return leftContainer.basePanel;
+    public HasWidgets getProfilContainer() {
+        return baseProfil;
     }
 
     @Override
@@ -33,8 +34,8 @@ public class BackboneViewImpl extends Composite implements BackboneView {
         this.backboneActivity = presenter;
     }
 
-	@Override
-	public HasWidgets getWallContainer() {
-		return wallContainer.basePanel;
-	}
+    @Override
+    public HasWidgets getWallContainer() {
+        return baseWall;
+    }
 }

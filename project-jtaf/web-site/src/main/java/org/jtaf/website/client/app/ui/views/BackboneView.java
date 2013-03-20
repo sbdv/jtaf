@@ -6,8 +6,8 @@ import com.google.gwt.user.client.ui.IsWidget;
 
 public interface BackboneView extends IsWidget {
 
-    HasWidgets getLeftContainer();
-    
+    HasWidgets getProfilContainer();
+
     HasWidgets getWallContainer();
 
     void setPresenter(Presenter presenter);

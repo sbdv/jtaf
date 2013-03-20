@@ -1,6 +1,6 @@
 package org.jtaf.website.client.app.ui.activities;
 
-import org.jtaf.website.client.app.ui.gin.Home;
+import org.jtaf.website.client.app.ui.gin.annotation.Home;
 import org.jtaf.website.client.app.ui.places.HomePlace;
 
 import com.google.gwt.activity.shared.Activity;

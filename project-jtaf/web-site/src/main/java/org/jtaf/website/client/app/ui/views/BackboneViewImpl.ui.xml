@@ -6,17 +6,15 @@
 	<g:HTMLPanel>
 		<g:HTMLPanel stylePrimaryName="navbar navbar-inverse navbar-fixed-top">
 			<g:HTMLPanel stylePrimaryName="navbar-inner">
-	    		<panel:NavigationContainer />
+	    		<panel:NavigationViewImpl />
 		    </g:HTMLPanel>
 		</g:HTMLPanel>
 	    <g:HTMLPanel stylePrimaryName="container">
 			<g:HTMLPanel stylePrimaryName="row-fluid">
 				<g:HTMLPanel stylePrimaryName="span4">
-					<panel:LeftContainer ui:field="leftContainer"/>
+					<g:HTMLPanel ui:field="baseProfil" stylePrimaryName="status alert"/>
 				</g:HTMLPanel>
-				<g:HTMLPanel stylePrimaryName="span8">
-					<panel:WallContainer ui:field="wallContainer"/>
-				</g:HTMLPanel>
+				<g:HTMLPanel ui:field="baseWall" stylePrimaryName="span8" />
 			</g:HTMLPanel>
 		</g:HTMLPanel>
 	</g:HTMLPanel>

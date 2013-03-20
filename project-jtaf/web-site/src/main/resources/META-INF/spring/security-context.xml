@@ -13,21 +13,14 @@
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">			
 	
-	<security:global-method-security secured-annotations="enabled" jsr250-annotations="disabled" />
+	<security:global-method-security secured-annotations="enabled" jsr250-annotations="disabled" />	
 	
 	<!-- HTTP security configurations -->
-	<security:http auto-config="false" create-session="ifRequired" disable-url-rewriting="true" entry-point-ref="gwtAwareAuthenticationEntryPoint">
-		<security:intercept-url pattern="/*" access="IS_AUTHENTICATED_ANONYMOUSLY" />	
+	<security:http auto-config="false" create-session="ifRequired" disable-url-rewriting="true" authentication-manager-ref="jtafAuthenticationManager" entry-point-ref="gwtAwareAuthenticationEntryPoint">
+		<security:intercept-url pattern="/jtaf.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />	
+	
+		<security:form-login login-page="/"  authentication-failure-url="/error"/>
+		
 	</security:http>	
 	
-	<bean id ="gwtAwareAuthenticationEntryPoint" class="org.jtaf.website.security.GwtAwareAuthenticationEntryPoint" />
-	
-	<!-- config de base pour un security custom, à remplacer par un authenticationManager custom -->
-	<security:authentication-manager >
-		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="math" authorities="ROLE_ADMIN"/>
-			</security:user-service>
-		</security:authentication-provider>
-  </security:authentication-manager>
 </beans>

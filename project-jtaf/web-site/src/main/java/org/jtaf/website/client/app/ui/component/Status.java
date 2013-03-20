@@ -13,20 +13,20 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class Status extends Composite {
 
-	private static StatusUiBinder uiBinder = GWT.create(StatusUiBinder.class);
-	@UiField
-	Image avatar;
-	@UiField
-	Anchor pseudo;
-	@UiField
-	Label date;
+    private static StatusUiBinder uiBinder = GWT.create(StatusUiBinder.class);
+    @UiField
+    Image avatar;
+    @UiField
+    Anchor pseudo;
+    @UiField
+    Label date;
 
-	interface StatusUiBinder extends UiBinder<Widget, Status> {
-	}
+    interface StatusUiBinder extends UiBinder<Widget, Status> {
+    }
 
-	public Status(JtafResources jtafResources) {
-		initWidget(uiBinder.createAndBindUi(this));
-		avatar.setResource(jtafResources.jtafLogo());
-	}
+    public Status(JtafResources jtafResources) {
+        initWidget(uiBinder.createAndBindUi(this));
+        avatar.setResource(jtafResources.jtafLogo());
+    }
 
 }

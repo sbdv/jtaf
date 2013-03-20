@@ -1,4 +1,4 @@
-package org.jtaf.website.client.app.ui.gin;
+package org.jtaf.website.client.app.ui.gin.provider;
 
 import org.jtaf.website.client.app.ui.places.JtafPlaceHistoryMapper;
 

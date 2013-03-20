@@ -1,0 +1,98 @@
+package org.jtaf.website.client.app.ui.activities;
+
+import org.jtaf.website.client.app.ui.views.LoginView.Presenter;
+
+import com.google.api.gwt.oauth2.client.Auth;
+import com.google.api.gwt.oauth2.client.AuthRequest;
+import com.google.gwt.core.client.Callback;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.http.client.Request;
+import com.google.gwt.http.client.RequestBuilder;
+import com.google.gwt.http.client.RequestCallback;
+import com.google.gwt.http.client.RequestException;
+import com.google.gwt.http.client.Response;
+import com.google.gwt.user.client.Window;
+
+public class LoginPresenter implements Presenter {
+
+    private static final Auth AUTH = Auth.get();
+    private static final String GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/auth";
+
+    // This app's personal client ID assigned by the Google APIs Console
+    // (http://code.google.com/apis/console).
+    private static final String GOOGLE_CLIENT_ID = "264546229669.apps.googleusercontent.com";
+
+    // The auth scope being requested. This scope will allow the application to
+    // identify who the authenticated user is.
+    private static final String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/plus.me";
+
+    private static final String DEFAULT_SPRING_LOGIN_URL = "j_spring_security_check";
+
+    private String springLoginUrl = null;
+
+    public String getSpringLoginUrl() {
+        if (this.springLoginUrl == null) {
+            this.springLoginUrl = GWT.getHostPageBaseURL() + DEFAULT_SPRING_LOGIN_URL;
+        }
+        return springLoginUrl;
+    }
+
+    @Override
+    public void processLogin() {
+        final AuthRequest req = new AuthRequest(GOOGLE_AUTH_URL, GOOGLE_CLIENT_ID).withScopes(PLUS_ME_SCOPE);
+        AUTH.login(req, new Callback<String, Throwable>() {
+            @Override
+            public void onSuccess(String token) {
+                // Window.alert("Got an OAuth token:\n" + token + "\n" + "Token expires in " + AUTH.expiresIn(req)
+                // + " ms\n");
+                final String url = GWT.getModuleBaseURL() + getSpringLoginUrl();
+
+                final RequestBuilder rb = new RequestBuilder(RequestBuilder.POST, url);
+
+                rb.setHeader("Content-Type", "application/x-www-form-urlencoded");
+                rb.setHeader("X-GWT-Secured", "Logging...");
+                // rb.setHeader("X-XSRF-Cookie", Cookies.getCookie("myCookieKey"));
+                // TODO : work on this
+                final StringBuilder sbParams = new StringBuilder(100);
+                sbParams.append("j_username=");
+                sbParams.append("math");
+                sbParams.append("&j_password=");
+                sbParams.append("math");
+
+                try {
+                    rb.sendRequest(sbParams.toString(), new RequestCallback() {
+
+                        @Override
+                        public void onResponseReceived(final Request request, final Response response) {
+
+                            int status = response.getStatusCode();
+                            if (status == Response.SC_OK) { // 200: everything's ok
+                                Window.alert("ok");
+                            }
+                            else if (status == Response.SC_UNAUTHORIZED) { // 401: oups...
+                                Window.alert("unauthorized");
+                            }
+                            else { // something else ?
+                                Window.alert("not ok");
+                            }
+                        }
+
+                        @Override
+                        public void onError(final Request request, final Throwable exception) {
+                            Window.alert(" very not ok");
+                        }
+                    });
+                }
+                catch (RequestException exception) {
+
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable caught) {
+                Window.alert("Error:\n" + caught.getMessage());
+            }
+        });
+    }
+
+}

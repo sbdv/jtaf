@@ -14,6 +14,7 @@ import org.jtaf.website.security.client.SecurityResponseMessageFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.stereotype.Component;
 
 import com.google.web.bindery.autobean.shared.AutoBean;
 import com.google.web.bindery.autobean.shared.AutoBeanCodex;
@@ -27,6 +28,7 @@ import com.google.web.bindery.autobean.vm.AutoBeanFactorySource;
  * @author mbellang
  * 
  */
+@Component
 public class GwtAwareAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
     private final String reasonPhrase;
