@@ -21,16 +21,14 @@ public class LoginPresenter implements Presenter {
     // This app's personal client ID assigned by the Google APIs Console
     // (http://code.google.com/apis/console).
     private static final String GOOGLE_CLIENT_ID = "264546229669.apps.googleusercontent.com";
-
     // The auth scope being requested. This scope will allow the application to
     // identify who the authenticated user is.
-    private static final String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/plus.me";
-
+    private static final String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/userinfo.profile";
     private static final String DEFAULT_SPRING_LOGIN_URL = "j_spring_security_check";
 
     private String springLoginUrl = null;
 
-    public String getSpringLoginUrl() {
+    private String getSpringLoginUrl() {
         if (this.springLoginUrl == null) {
             this.springLoginUrl = GWT.getHostPageBaseURL() + DEFAULT_SPRING_LOGIN_URL;
         }
@@ -43,21 +41,15 @@ public class LoginPresenter implements Presenter {
         AUTH.login(req, new Callback<String, Throwable>() {
             @Override
             public void onSuccess(String token) {
-                // Window.alert("Got an OAuth token:\n" + token + "\n" + "Token expires in " + AUTH.expiresIn(req)
-                // + " ms\n");
                 final String url = GWT.getModuleBaseURL() + getSpringLoginUrl();
 
                 final RequestBuilder rb = new RequestBuilder(RequestBuilder.POST, url);
 
                 rb.setHeader("Content-Type", "application/x-www-form-urlencoded");
                 rb.setHeader("X-GWT-Secured", "Logging...");
-                // rb.setHeader("X-XSRF-Cookie", Cookies.getCookie("myCookieKey"));
-                // TODO : work on this
                 final StringBuilder sbParams = new StringBuilder(100);
                 sbParams.append("j_username=");
-                sbParams.append("math");
-                sbParams.append("&j_password=");
-                sbParams.append("math");
+                sbParams.append(token.toString());
 
                 try {
                     rb.sendRequest(sbParams.toString(), new RequestCallback() {
@@ -90,7 +82,7 @@ public class LoginPresenter implements Presenter {
 
             @Override
             public void onFailure(Throwable caught) {
-                Window.alert("Error:\n" + caught.getMessage());
+
             }
         });
     }
