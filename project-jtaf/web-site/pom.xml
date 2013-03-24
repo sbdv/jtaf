@@ -67,5 +67,9 @@
 		  	<groupId>com.sun.jersey</groupId>
 		  	<artifactId>jersey-client</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-jaxrs</artifactId>
+		</dependency>
 	</dependencies>
 </project>

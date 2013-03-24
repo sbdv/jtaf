@@ -1,6 +1,8 @@
 package org.jtaf.website.server.services;
 
-public interface ProfilServices {
+import org.jtaf.website.server.domain.entities.UserProfile;
+
+public interface ProfileServices {
 
     /**
      * Récupère les informations
@@ -8,5 +10,5 @@ public interface ProfilServices {
      * @param token
      * @return
      */
-    String profilInformation(String token);
+    UserProfile profilInformation(String token);
 }

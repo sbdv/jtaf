@@ -23,7 +23,7 @@ public class LoginPresenter implements Presenter {
     private static final String GOOGLE_CLIENT_ID = "264546229669.apps.googleusercontent.com";
     // The auth scope being requested. This scope will allow the application to
     // identify who the authenticated user is.
-    private static final String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/userinfo.profile";
+    private static final String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email";
     private static final String DEFAULT_SPRING_LOGIN_URL = "j_spring_security_check";
 
     private String springLoginUrl = null;
