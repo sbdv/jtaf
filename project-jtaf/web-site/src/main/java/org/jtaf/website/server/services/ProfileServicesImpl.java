@@ -1,32 +1,30 @@
 package org.jtaf.website.server.services;
 
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.jtaf.website.server.domain.entities.UserProfile;
+import org.jtaf.website.server.domain.webservices.RESTRequestMethods;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.client.config.ClientConfig;
-import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.sun.jersey.core.util.StringKeyStringValueIgnoreCaseMultivaluedMap;
 
 @Service
 public class ProfileServicesImpl implements ProfileServices {
 
+    @Autowired
+    private RESTRequestMethods restRequestMethods;
+
+    protected final String googleUri = "https://www.googleapis.com/oauth2/v1/userinfo";
+
     @Override
     public UserProfile profilInformation(String token) {
-    	
-    	ClientConfig cc = new DefaultClientConfig();
-    	  cc.getClasses().add(JacksonJsonProvider.class);
-    	  Client client = Client.create(cc);
-    	 
-    	  WebResource resource = client.resource("https://www.googleapis.com/oauth2/v1/userinfo").queryParam(
-                  "access_token", token);
-    	  resource.accept(MediaType.APPLICATION_JSON_TYPE);
-    	  return resource.get(UserProfile.class);
+        MultivaluedMap<String, String> params = new StringKeyStringValueIgnoreCaseMultivaluedMap();
+        params.add("access_token", token);
+        return restRequestMethods.get(googleUri, UserProfile.class, params);
     }
-    
+
+    protected void setRESTRequestMethods(RESTRequestMethods restRequestMethods) {
+        this.restRequestMethods = restRequestMethods;
+    }
 }
