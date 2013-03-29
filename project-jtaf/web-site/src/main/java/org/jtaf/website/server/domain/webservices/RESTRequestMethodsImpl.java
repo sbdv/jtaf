@@ -27,4 +27,14 @@ public class RESTRequestMethodsImpl implements RESTRequestMethods {
         return webResource.get(clazz);
     }
 
+    public static class GoogleInfoApi {
+
+        public static final String GOOGLE_URI = "https://www.googleapis.com/oauth2/v1/userinfo";
+        public static final String ACCESS_TOKEN = "access_token";
+
+        private GoogleInfoApi() {
+
+        }
+    }
+
 }

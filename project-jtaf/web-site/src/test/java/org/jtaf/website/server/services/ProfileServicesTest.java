@@ -1,8 +1,11 @@
 package org.jtaf.website.server.services;
 
+import java.math.BigInteger;
+
 import junit.framework.Assert;
 
 import org.jtaf.website.JtafTest;
+import org.jtaf.website.server.domain.entities.UserProfile;
 import org.jtaf.website.server.domain.repository.UserProfileRepository;
 import org.jtaf.website.server.domain.webservices.RESTRequestMethods;
 import org.junit.Before;
@@ -29,5 +32,7 @@ public class ProfileServicesTest extends JtafTest {
     public void userProfilTest() {
         boolean test = userProfileRepository.findAll().iterator().hasNext();
         Assert.assertFalse(test);
+        UserProfile userProfile = userProfileRepository.findOne(BigInteger.ONE);
+        Assert.assertNull(userProfile);
     }
 }
