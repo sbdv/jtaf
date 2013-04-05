@@ -9,6 +9,7 @@ import org.jtaf.website.server.domain.entities.UserProfile;
 import org.jtaf.website.server.domain.repository.UserProfileRepository;
 import org.jtaf.website.server.domain.webservices.RESTRequestMethods;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class ProfileServicesTest extends JtafTest {
     }
 
     @Test
+    @Ignore
     public void userProfilTest() {
         boolean test = userProfileRepository.findAll().iterator().hasNext();
         Assert.assertFalse(test);

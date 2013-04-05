@@ -5,14 +5,17 @@ import java.math.BigInteger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.Table;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @Entity
+@Table(name = "USERPROFILE")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserProfile {
 
@@ -38,7 +41,6 @@ public class UserProfile {
     }
 
     @JsonProperty("given_name")
-    @Transient
     public String getGivenName() {
         return givenName;
     }
@@ -48,7 +50,6 @@ public class UserProfile {
     }
 
     @JsonProperty("family_name")
-    @Transient
     public String getLastName() {
         return lastName;
     }
@@ -75,7 +76,6 @@ public class UserProfile {
     }
 
     @JsonProperty("email")
-    @Transient
     public String getMail() {
         return mail;
     }
@@ -88,4 +88,15 @@ public class UserProfile {
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
+
+    @Override
+    public int hashCode() {
+        return HashCodeBuilder.reflectionHashCode(this, true);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return EqualsBuilder.reflectionEquals(this, obj, true);
+    }
+
 }

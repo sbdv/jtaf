@@ -18,20 +18,23 @@ public class HomeActivity extends AbstractActivity implements BackboneView.Prese
     private final BackboneView backBoneView;
     private final JtafResources resources;
     private final LoginView loginComponent;
+    private final LoginPresenter loginPresenter;
 
     @Inject
     public HomeActivity(PlaceController placeController, BackboneView backbone, JtafResources resources,
-            LoginView loginComponent) {
+            LoginView loginComponent, LoginPresenter loginPresenter) {
         this.placeController = placeController;
         this.backBoneView = backbone;
         this.resources = resources;
         this.loginComponent = loginComponent;
+        this.loginPresenter = loginPresenter;
     }
 
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         panel.setWidget(backBoneView);
         backBoneView.getProfilContainer().add(loginComponent.asWidget());
+        loginComponent.setPresenter(loginPresenter);
         backBoneView.setPresenter(this);
         backBoneView.getWallContainer().add(new Status(resources));
         backBoneView.getWallContainer().add(new Status(resources));

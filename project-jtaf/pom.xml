@@ -15,7 +15,7 @@
 		<gwt-version>2.5.0</gwt-version>
 		<gwt-oauth2-version>0.2</gwt-oauth2-version>
 		<gin-version>2.0.0</gin-version>
-		<java-version>1.7</java-version>
+		<java-version>1.6</java-version>
 		<spring-version>3.2.1.RELEASE</spring-version>
 		<spring-security-version>3.1.3.RELEASE</spring-security-version>
 		<spring-data-version>1.2.0.RELEASE</spring-data-version>
@@ -30,6 +30,7 @@
 		<junit-version>4.10</junit-version>
 		<mockito-version>1.9.5</mockito-version>
 		<hibernate-validator-version>4.3.0.Final</hibernate-validator-version>
+		<guava-version>13.0.1</guava-version>
 	</properties>
 
 	<dependencyManagement>
@@ -222,6 +223,20 @@
 				<artifactId>spring-test</artifactId>
 				<version>${spring-version}</version>
 				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava-version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava-gwt</artifactId>
+				<version>${guava-version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

@@ -2,8 +2,9 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
+		
 	</ui:style>
-	<g:HTMLPanel ui:field="basePanel" stylePrimaryName="row-fluid">
-		<g:Image ui:field="imgLogin"/>
+	<g:HTMLPanel>
+		<g:Label text="Loading ..."/>
 	</g:HTMLPanel>
 </ui:UiBinder> 

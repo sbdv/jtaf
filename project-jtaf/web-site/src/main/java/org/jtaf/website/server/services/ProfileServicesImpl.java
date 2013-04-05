@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.sun.jersey.core.util.StringKeyStringValueIgnoreCaseMultivaluedMap;
 
@@ -26,6 +27,7 @@ public class ProfileServicesImpl implements ProfileServices {
 
     @Override
     public UserProfile userProfileInformation(String token) {
+        // TODO test d'intégration
         MultivaluedMap<String, String> params = new StringKeyStringValueIgnoreCaseMultivaluedMap();
         params.add(GoogleInfoApi.ACCESS_TOKEN, token);
         return restRequestMethods.get(GoogleInfoApi.GOOGLE_URI, UserProfile.class, params);
@@ -42,15 +44,28 @@ public class ProfileServicesImpl implements ProfileServices {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public UserProfile userProfileInformation(BigInteger id) {
         return userProfileRepository.findOne(id);
     }
 
     @Override
-    public UserProfile createUserProfile(UserProfile userProfile) {
-        mergeUserProfile(userProfile, userProfileRepository.save(userProfile));
-        return userProfile;
+    @Transactional(readOnly = false)
+    public UserProfile createOrUpdateUserProfile(UserProfile userProfile) {
+        UserProfile userInBdd = userProfileInformation(userProfile.getId());
+        if (userInBdd == null) {
+            userInBdd = new UserProfile();
+            userInBdd.setPseudo(userProfile.getGivenName().concat(".").concat(userProfile.getLastName()));
+        }
+        mergeUserProfile(userProfile, userInBdd);
+        return userProfileRepository.save(userInBdd);
     }
+
+    private void mergeUserProfile(UserProfile userGoogle, UserProfile userBdd) {
+        BeanUtils.copyProperties(userGoogle, userBdd, NOT_MERGE_PROFILE_PROPERTIES);
+    }
+
+    private static final String[] NOT_MERGE_PROFILE_PROPERTIES = { "pseudo" };
 
     public void setUserProfileRepository(UserProfileRepository userProfileRepository) {
         this.userProfileRepository = userProfileRepository;
@@ -59,11 +74,4 @@ public class ProfileServicesImpl implements ProfileServices {
     public void setRESTRequestMethods(RESTRequestMethods restRequestMethods) {
         this.restRequestMethods = restRequestMethods;
     }
-
-    private void mergeUserProfile(UserProfile userGoogle, UserProfile userBdd) {
-        BeanUtils.copyProperties(userBdd, userGoogle, NOT_MERGE_PROFILE_PROPERTIES);
-        userGoogle.setPseudo(userGoogle.getGivenName().concat(".").concat(userGoogle.getLastName()));
-    }
-
-    private static final String[] NOT_MERGE_PROFILE_PROPERTIES = { "givenName", "lastName", "mail" };
 }

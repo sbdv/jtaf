@@ -1,5 +1,6 @@
 package org.jtaf.website.client.app.ui.activities;
 
+import org.jtaf.website.client.app.ui.views.LoginView;
 import org.jtaf.website.client.app.ui.views.LoginView.Presenter;
 
 import com.google.api.gwt.oauth2.client.Auth;
@@ -12,6 +13,7 @@ import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
 import com.google.gwt.user.client.Window;
+import com.google.inject.Inject;
 
 public class LoginPresenter implements Presenter {
 
@@ -25,6 +27,7 @@ public class LoginPresenter implements Presenter {
     // identify who the authenticated user is.
     private static final String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email";
     private static final String DEFAULT_SPRING_LOGIN_URL = "j_spring_security_check";
+    private final LoginView loginView;
 
     private String springLoginUrl = null;
 
@@ -33,6 +36,11 @@ public class LoginPresenter implements Presenter {
             this.springLoginUrl = GWT.getHostPageBaseURL() + DEFAULT_SPRING_LOGIN_URL;
         }
         return springLoginUrl;
+    }
+
+    @Inject
+    public LoginPresenter(LoginView loginView) {
+        this.loginView = loginView;
     }
 
     @Override
@@ -63,20 +71,23 @@ public class LoginPresenter implements Presenter {
                             }
                             else if (status == Response.SC_UNAUTHORIZED) { // 401: oups...
                                 Window.alert("unauthorized");
+                                loginView.notLogged();
                             }
                             else { // something else ?
                                 Window.alert("not ok");
+                                loginView.notLogged();
                             }
                         }
 
                         @Override
                         public void onError(final Request request, final Throwable exception) {
                             Window.alert(" very not ok");
+                            loginView.notLogged();
                         }
                     });
                 }
                 catch (RequestException exception) {
-
+                    loginView.notLogged();
                 }
             }
 

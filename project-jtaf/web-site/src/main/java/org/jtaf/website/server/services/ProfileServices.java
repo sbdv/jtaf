@@ -31,9 +31,9 @@ public interface ProfileServices {
     UserProfile userProfileInformation(BigInteger id);
 
     /**
-     * Inscrit un nouvel utilisateur jtaf
+     * Inscrit ou merge un nouvel utilisateur jtaf
      * 
      * @param userProfile
      */
-    UserProfile createUserProfile(UserProfile userProfile);
+    UserProfile createOrUpdateUserProfile(UserProfile userProfile);
 }
