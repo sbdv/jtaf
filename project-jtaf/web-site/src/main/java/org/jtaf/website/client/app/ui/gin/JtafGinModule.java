@@ -1,5 +1,6 @@
 package org.jtaf.website.client.app.ui.gin;
 
+import org.jtaf.website.client.app.domain.access.JtafRequestFactory;
 import org.jtaf.website.client.app.ui.activities.HomeActivity;
 import org.jtaf.website.client.app.ui.activities.JtafActivityMapper;
 import org.jtaf.website.client.app.ui.activities.LoginPresenter;
@@ -34,6 +35,7 @@ public class JtafGinModule extends AbstractGinModule {
         bind(ActivityManager.class).toProvider(ActivityManagerProvider.class).in(Singleton.class);
         bind(PlaceHistoryHandler.class).toProvider(PlaceHistoryHandlerProvider.class).in(Singleton.class);
         bind(JtafResources.class).in(Singleton.class);
+        bind(JtafRequestFactory.class).in(Singleton.class);
         // view
         bind(BackboneView.class).to(BackboneViewImpl.class).in(Singleton.class);
         bind(LoginView.class).to(LoginViewImpl.class).in(Singleton.class);

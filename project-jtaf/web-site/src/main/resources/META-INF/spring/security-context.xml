@@ -17,7 +17,8 @@
 	
 	<!-- HTTP security configurations -->
 	<security:http auto-config="false" create-session="ifRequired" disable-url-rewriting="true" authentication-manager-ref="jtafAuthenticationManager" entry-point-ref="gwtAwareAuthenticationEntryPoint">
-		<security:intercept-url pattern="/jtaf.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />	
+		<security:intercept-url pattern="/jtaf.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/gwtRequest" access="IS_AUTHENTICATED_ANONYMOUSLY"/>	
 	
 		<security:form-login login-page="/"  authentication-failure-url="/error"/>
 		

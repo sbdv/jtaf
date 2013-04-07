@@ -1,5 +1,6 @@
 package org.jtaf.website.client.app.ui.gin;
 
+import org.jtaf.website.client.app.domain.access.JtafRequestFactory;
 import org.jtaf.website.client.app.ui.views.BackboneView;
 
 import com.google.gwt.activity.shared.ActivityManager;
@@ -21,5 +22,7 @@ public interface JtafGinjector extends Ginjector {
     ActivityManager getActivityManager();
 
     PlaceHistoryHandler getPlaceHistoryHandler();
+    
+    JtafRequestFactory getAuthentifiedRequestFactory();
 
 }
