@@ -35,9 +35,13 @@ public class LoginViewImpl extends Composite implements LoginView {
 
     @UiHandler("imgLogin")
     void handleClick(ClickEvent event) {
+        presenter.processLogin();
+    }
+
+    @Override
+    public void isLoggingIn() {
         basePanel.remove(imgLogin);
         basePanel.add(loadingForm);
-        presenter.processLogin();
     }
 
     @Override
@@ -56,4 +60,5 @@ public class LoginViewImpl extends Composite implements LoginView {
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
     }
+
 }

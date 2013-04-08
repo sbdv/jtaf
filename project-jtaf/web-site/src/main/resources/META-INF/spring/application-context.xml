@@ -18,7 +18,7 @@
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">			
 	
 	<context:annotation-config />
-	<context:component-scan base-package="org.jtaf.website.security,org.jtaf.website.server" >
+	<context:component-scan base-package="org.jtaf.website.server" >
 	</context:component-scan>
 	
 	<!-- databases config -->
@@ -40,5 +40,5 @@
 
     <jdbc:embedded-database id="dataSource" type="HSQL" />	
     
-    <jpa:repositories base-package="org.jtaf.website.server.domain.repository" />
+    <jpa:repositories base-package="org.jtaf.website.server.app.domain.repository" />
 </beans>

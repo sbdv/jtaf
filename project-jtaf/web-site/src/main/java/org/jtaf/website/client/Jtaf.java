@@ -15,8 +15,8 @@ public class Jtaf implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-    	//request factory
-    	injector.getAuthentifiedRequestFactory().initialize(injector.getEventBus());
+        // request factory
+        injector.getAuthentifiedRequestFactory().initialize(injector.getEventBus());
         injector.getActivityManager().setDisplay(basePanel);
         injector.getPlaceHistoryHandler().register(injector.getPlaceController(), injector.getEventBus(),
                 new HomePlace("Home"));

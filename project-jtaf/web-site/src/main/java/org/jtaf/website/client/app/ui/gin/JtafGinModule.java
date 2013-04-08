@@ -6,6 +6,7 @@ import org.jtaf.website.client.app.ui.activities.JtafActivityMapper;
 import org.jtaf.website.client.app.ui.activities.LoginPresenter;
 import org.jtaf.website.client.app.ui.gin.annotation.Home;
 import org.jtaf.website.client.app.ui.gin.provider.ActivityManagerProvider;
+import org.jtaf.website.client.app.ui.gin.provider.HandlerManagerProvider;
 import org.jtaf.website.client.app.ui.gin.provider.PlaceControllerProvider;
 import org.jtaf.website.client.app.ui.gin.provider.PlaceHistoryHandlerProvider;
 import org.jtaf.website.client.app.ui.resources.JtafResources;
@@ -17,6 +18,7 @@ import org.jtaf.website.client.app.ui.views.LoginViewImpl;
 import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
+import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryHandler;
@@ -30,6 +32,7 @@ public class JtafGinModule extends AbstractGinModule {
     protected void configure() {
         // resources
         bind(EventBus.class).to(SimpleEventBus.class).in(Singleton.class);
+        bind(HandlerManager.class).toProvider(HandlerManagerProvider.class).in(Singleton.class);
         bind(PlaceController.class).toProvider(PlaceControllerProvider.class).in(Singleton.class);
         bind(ActivityMapper.class).to(JtafActivityMapper.class).in(Singleton.class);
         bind(ActivityManager.class).toProvider(ActivityManagerProvider.class).in(Singleton.class);

@@ -1,5 +1,7 @@
 package org.jtaf.website.client.app.ui.activities;
 
+import org.jtaf.website.client.app.ui.event.LoadingUserDataEvent;
+import org.jtaf.website.client.app.ui.event.LoadingUserDataHandler;
 import org.jtaf.website.client.app.ui.views.LoginView;
 import org.jtaf.website.client.app.ui.views.LoginView.Presenter;
 
@@ -7,12 +9,12 @@ import com.google.api.gwt.oauth2.client.Auth;
 import com.google.api.gwt.oauth2.client.AuthRequest;
 import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
-import com.google.gwt.user.client.Window;
 import com.google.inject.Inject;
 
 public class LoginPresenter implements Presenter {
@@ -28,6 +30,7 @@ public class LoginPresenter implements Presenter {
     private static final String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email";
     private static final String DEFAULT_SPRING_LOGIN_URL = "j_spring_security_check";
     private final LoginView loginView;
+    private final HandlerManager handlerManager;
 
     private String springLoginUrl = null;
 
@@ -39,8 +42,20 @@ public class LoginPresenter implements Presenter {
     }
 
     @Inject
-    public LoginPresenter(LoginView loginView) {
+    public LoginPresenter(LoginView loginView, HandlerManager handlerManager) {
         this.loginView = loginView;
+        this.handlerManager = handlerManager;
+        bind();
+    }
+
+    private void bind() {
+        handlerManager.addHandler(LoadingUserDataEvent.TYPE, new LoadingUserDataHandler() {
+
+            @Override
+            public void onLoadingUserData(LoadingUserDataEvent event) {
+                loginView.logged();
+            }
+        });
     }
 
     @Override
@@ -49,6 +64,7 @@ public class LoginPresenter implements Presenter {
         AUTH.login(req, new Callback<String, Throwable>() {
             @Override
             public void onSuccess(String token) {
+                loginView.isLoggingIn();
                 final String url = GWT.getModuleBaseURL() + getSpringLoginUrl();
 
                 final RequestBuilder rb = new RequestBuilder(RequestBuilder.POST, url);
@@ -67,21 +83,18 @@ public class LoginPresenter implements Presenter {
 
                             int status = response.getStatusCode();
                             if (status == Response.SC_OK) { // 200: everything's ok
-                                Window.alert("ok");
+                                handlerManager.fireEvent(new LoadingUserDataEvent());
                             }
                             else if (status == Response.SC_UNAUTHORIZED) { // 401: oups...
-                                Window.alert("unauthorized");
                                 loginView.notLogged();
                             }
                             else { // something else ?
-                                Window.alert("not ok");
                                 loginView.notLogged();
                             }
                         }
 
                         @Override
                         public void onError(final Request request, final Throwable exception) {
-                            Window.alert(" very not ok");
                             loginView.notLogged();
                         }
                     });

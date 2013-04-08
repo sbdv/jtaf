@@ -22,7 +22,6 @@ public interface JtafGinjector extends Ginjector {
     ActivityManager getActivityManager();
 
     PlaceHistoryHandler getPlaceHistoryHandler();
-    
-    JtafRequestFactory getAuthentifiedRequestFactory();
 
+    JtafRequestFactory getAuthentifiedRequestFactory();
 }

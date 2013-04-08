@@ -8,6 +8,8 @@ public interface LoginView extends IsWidget {
 
     void notLogged();
 
+    void isLoggingIn();
+
     void setPresenter(Presenter presenter);
 
     public interface Presenter {
