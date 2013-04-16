@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -17,7 +18,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 @Entity
 @Table(name = "USERPROFILE")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserProfile {
+public class UserProfile extends AbstractEntity {
 
     private BigInteger id;
     private String givenName;
@@ -25,6 +26,7 @@ public class UserProfile {
     private String pseudo;
     private String avatar;
     private String mail;
+    private int version;
 
     public UserProfile() {
 
@@ -32,10 +34,12 @@ public class UserProfile {
 
     @Id
     @Column(name = "ID")
+    @Override
     public BigInteger getId() {
         return id;
     }
 
+    @Override
     public void setId(BigInteger id) {
         this.id = id;
     }
@@ -84,6 +88,17 @@ public class UserProfile {
         this.mail = mail;
     }
 
+    @Version
+    @Override
+    public int getVersion() {
+        return version;
+    }
+
+    @Override
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
@@ -98,5 +113,4 @@ public class UserProfile {
     public boolean equals(Object obj) {
         return EqualsBuilder.reflectionEquals(this, obj, true);
     }
-
 }

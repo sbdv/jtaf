@@ -1,5 +1,6 @@
 package org.jtaf.website.client.app.ui.activities;
 
+import org.jtaf.website.client.app.domain.access.JtafRequestFactory;
 import org.jtaf.website.client.app.ui.component.Status;
 import org.jtaf.website.client.app.ui.event.LoadingUserDataEvent;
 import org.jtaf.website.client.app.ui.event.LoadingUserDataHandler;
@@ -23,16 +24,19 @@ public class HomeActivity extends AbstractActivity implements BackboneView.Prese
     private final LoginView loginComponent;
     private final LoginPresenter loginPresenter;
     private final HandlerManager handlerManager;
+    private final JtafRequestFactory requestFactory;
 
     @Inject
     public HomeActivity(PlaceController placeController, BackboneView backbone, JtafResources resources,
-            LoginView loginComponent, LoginPresenter loginPresenter, HandlerManager handlerManager) {
+            LoginView loginComponent, LoginPresenter loginPresenter, HandlerManager handlerManager,
+            JtafRequestFactory requestFactory) {
         this.placeController = placeController;
         this.backBoneView = backbone;
         this.resources = resources;
         this.loginComponent = loginComponent;
         this.loginPresenter = loginPresenter;
         this.handlerManager = handlerManager;
+        this.requestFactory = requestFactory;
         bind();
     }
 
