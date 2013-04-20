@@ -46,8 +46,8 @@ public class LoginViewImpl extends Composite implements LoginView {
 
     @Override
     public void logged() {
-        // TODO Auto-generated method stub
-
+        basePanel.remove(loadingForm);
+        basePanel.add(imgLogin);
     }
 
     @Override

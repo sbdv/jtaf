@@ -1,7 +1,5 @@
 package org.jtaf.website.server.app.facade.entities;
 
-import java.math.BigInteger;
-
 import org.jtaf.website.server.app.domain.entities.UserProfile;
 import org.jtaf.website.server.app.services.ProfileServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,7 @@ public class UserProfileLocator extends EntityLocator<UserProfile> {
     private ProfileServices profileServices;
 
     @Override
-    public UserProfile find(Class<? extends UserProfile> clazz, BigInteger id) {
+    public UserProfile find(Class<? extends UserProfile> clazz, String id) {
         return profileServices.userProfileInformation(id);
     }
 

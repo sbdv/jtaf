@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 public enum AuthenticationRole {
 
-    USER(BigInteger.valueOf(1), "ROLE_User", "Internal User");
+    USER(BigInteger.valueOf(1), "ROLE_USER", "Internal User");
 
     private BigInteger id;
     private String role;

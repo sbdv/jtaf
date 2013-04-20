@@ -1,7 +1,5 @@
 package org.jtaf.website.server.app.facade.entities;
 
-import java.math.BigInteger;
-
 import org.jtaf.website.server.app.domain.entities.AbstractEntity;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -9,7 +7,7 @@ import org.springframework.context.ApplicationContextAware;
 
 import com.google.web.bindery.requestfactory.shared.Locator;
 
-public abstract class EntityLocator<T extends AbstractEntity> extends Locator<T, BigInteger> implements
+public abstract class EntityLocator<T extends AbstractEntity> extends Locator<T, String> implements
         ApplicationContextAware {
 
     private ApplicationContext appContext;
@@ -25,19 +23,19 @@ public abstract class EntityLocator<T extends AbstractEntity> extends Locator<T,
     }
 
     @Override
-    public abstract T find(Class<? extends T> clazz, BigInteger id);
+    public abstract T find(Class<? extends T> clazz, String id);
 
     @Override
     public abstract Class<T> getDomainType();
 
     @Override
-    public BigInteger getId(T domainObject) {
+    public String getId(T domainObject) {
         return domainObject.getId();
     }
 
     @Override
-    public Class<BigInteger> getIdType() {
-        return BigInteger.class;
+    public Class<String> getIdType() {
+        return String.class;
     }
 
     @Override

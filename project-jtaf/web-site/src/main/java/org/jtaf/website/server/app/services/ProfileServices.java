@@ -1,7 +1,5 @@
 package org.jtaf.website.server.app.services;
 
-import java.math.BigInteger;
-
 import org.jtaf.website.server.app.domain.entities.UserProfile;
 
 public interface ProfileServices {
@@ -12,7 +10,7 @@ public interface ProfileServices {
      * @param token
      * @return userProfile
      */
-    UserProfile userProfileInformation(String token);
+    UserProfile googleProfileInformation(String token);
 
     /**
      * Récupère les informations à partir de l'user en session
@@ -28,7 +26,7 @@ public interface ProfileServices {
      *            de l'user
      * @return userProfile
      */
-    UserProfile userProfileInformation(BigInteger id);
+    UserProfile userProfileInformation(String id);
 
     /**
      * Inscrit ou merge un nouvel utilisateur jtaf

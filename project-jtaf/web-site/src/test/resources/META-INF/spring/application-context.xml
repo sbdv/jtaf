@@ -36,7 +36,7 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-	<jpa:repositories base-package="org.jtaf.website.server.domain.repository" />
+	<jpa:repositories base-package="org.jtaf.website.server.app.domain.repository" />
 
 	<jdbc:embedded-database id="dataSource" type="HSQL" />
 </beans>

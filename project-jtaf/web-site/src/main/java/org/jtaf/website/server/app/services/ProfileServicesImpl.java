@@ -1,13 +1,12 @@
 package org.jtaf.website.server.app.services;
 
-import java.math.BigInteger;
-
 import javax.ws.rs.core.MultivaluedMap;
 
 import org.jtaf.website.server.app.domain.entities.UserProfile;
 import org.jtaf.website.server.app.domain.repository.UserProfileRepository;
 import org.jtaf.website.server.app.domain.webservices.RESTRequestMethods;
 import org.jtaf.website.server.app.domain.webservices.RESTRequestMethodsImpl.GoogleInfoApi;
+import org.jtaf.website.server.app.domain.webservices.UserGoogle;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -26,11 +25,14 @@ public class ProfileServicesImpl implements ProfileServices {
     private UserProfileRepository userProfileRepository;
 
     @Override
-    public UserProfile userProfileInformation(String token) {
+    public UserProfile googleProfileInformation(String token) {
         // TODO test d'intégration
         MultivaluedMap<String, String> params = new StringKeyStringValueIgnoreCaseMultivaluedMap();
         params.add(GoogleInfoApi.ACCESS_TOKEN, token);
-        return restRequestMethods.get(GoogleInfoApi.GOOGLE_URI, UserProfile.class, params);
+        UserGoogle userGoogle = restRequestMethods.get(GoogleInfoApi.GOOGLE_URI, UserGoogle.class, params);
+        UserProfile userProfile = new UserProfile();
+        BeanUtils.copyProperties(userGoogle, userProfile);
+        return userProfile;
     }
 
     @Override
@@ -45,7 +47,7 @@ public class ProfileServicesImpl implements ProfileServices {
 
     @Override
     @Transactional(readOnly = true)
-    public UserProfile userProfileInformation(BigInteger id) {
+    public UserProfile userProfileInformation(String id) {
         return userProfileRepository.findOne(id);
     }
 

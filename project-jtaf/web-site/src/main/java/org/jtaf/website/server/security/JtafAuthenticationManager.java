@@ -4,8 +4,8 @@ import java.util.Collection;
 import java.util.List;
 
 import org.jtaf.website.server.app.domain.entities.UserProfile;
+import org.jtaf.website.server.app.exception.JtafAuthenticationException;
 import org.jtaf.website.server.app.services.ProfileServices;
-import org.jtaf.website.shared.app.exception.JtafAuthenticationException;
 import org.jtaf.website.shared.security.AuthenticationRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -30,7 +30,7 @@ public class JtafAuthenticationManager implements AuthenticationManager {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         UserProfile userProfile = null;
         try {
-            userProfile = profileServices.userProfileInformation(authentication.getPrincipal().toString());
+            userProfile = profileServices.googleProfileInformation(authentication.getPrincipal().toString());
         }
         catch (ClientHandlerException e) {
             throw new JtafAuthenticationException(e.getMessage(), e);
@@ -41,8 +41,8 @@ public class JtafAuthenticationManager implements AuthenticationManager {
 
         userProfile = profileServices.createOrUpdateUserProfile(userProfile);
 
-        UsernamePasswordAuthenticationToken user = new UsernamePasswordAuthenticationToken(userProfile.getPseudo(),
-                userProfile.getPseudo(), getAuthorities());
+        UsernamePasswordAuthenticationToken user = new UsernamePasswordAuthenticationToken(userProfile.getGivenName(),
+                userProfile.getGivenName(), getAuthorities());
         user.setDetails(userProfile);
         return user;
     }

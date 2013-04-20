@@ -1,9 +1,12 @@
 package org.jtaf.website.client.app.ui.activities;
 
+import org.jtaf.website.client.app.domain.access.JtafRequestFactory;
+import org.jtaf.website.client.app.domain.access.UserProfileRequest;
+import org.jtaf.website.client.app.domain.entities.UserProfileProxy;
 import org.jtaf.website.client.app.ui.event.LoadingUserDataEvent;
-import org.jtaf.website.client.app.ui.event.LoadingUserDataHandler;
 import org.jtaf.website.client.app.ui.views.LoginView;
 import org.jtaf.website.client.app.ui.views.LoginView.Presenter;
+import org.jtaf.website.client.security.domain.access.SecuredReceiver;
 
 import com.google.api.gwt.oauth2.client.Auth;
 import com.google.api.gwt.oauth2.client.AuthRequest;
@@ -15,6 +18,7 @@ import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
+import com.google.gwt.user.client.Window;
 import com.google.inject.Inject;
 
 public class LoginPresenter implements Presenter {
@@ -49,13 +53,7 @@ public class LoginPresenter implements Presenter {
     }
 
     private void bind() {
-        handlerManager.addHandler(LoadingUserDataEvent.TYPE, new LoadingUserDataHandler() {
-
-            @Override
-            public void onLoadingUserData(LoadingUserDataEvent event) {
-                loginView.logged();
-            }
-        });
+       
     }
 
     @Override

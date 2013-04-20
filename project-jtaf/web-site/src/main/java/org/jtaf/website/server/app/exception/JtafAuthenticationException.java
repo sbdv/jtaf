@@ -1,4 +1,4 @@
-package org.jtaf.website.shared.app.exception;
+package org.jtaf.website.server.app.exception;
 
 import org.springframework.security.core.AuthenticationException;
 
