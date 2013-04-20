@@ -47,31 +47,24 @@ public class HomeActivity extends AbstractActivity implements
 	}
 
 	private void bind() {
-		handlerManager.addHandler(LoadingUserDataEvent.TYPE,
-				new LoadingUserDataHandler() {
-
-					@Override
-					public void onLoadingUserData(LoadingUserDataEvent event) {
-						UserProfileRequest userRequest = requestFactory
-								.getUserProfileRequest();
-						userRequest.userProfileInformation().fire(
-								new SecuredReceiver<UserProfileProxy>() {
-
-									@Override
-									public void onSuccess(
-											UserProfileProxy response) {
-										Window.alert(response.toString());
-										loginComponent.logged();
-									}
-								});
-					}
-				});
+	
 	}
 
 	@Override
 	public void start(AcceptsOneWidget panel, EventBus eventBus) {
-		panel.setWidget(backBoneView);
 		backBoneView.getProfilContainer().add(loginComponent.asWidget());
+		UserProfileRequest userRequest = requestFactory
+				.getUserProfileRequest();
+		userRequest.userProfileInformation().fire(
+				new SecuredReceiver<UserProfileProxy>() {
+
+					@Override
+					public void onSuccess(
+							UserProfileProxy response) {
+						loginComponent.logged(response);
+					}
+				});
+		panel.setWidget(backBoneView);
 		loginComponent.setPresenter(loginPresenter);
 		backBoneView.setPresenter(this);
 		backBoneView.getWallContainer().add(new Status(resources));

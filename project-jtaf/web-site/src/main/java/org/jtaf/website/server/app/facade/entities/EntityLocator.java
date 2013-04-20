@@ -40,7 +40,7 @@ public abstract class EntityLocator<T extends AbstractEntity> extends Locator<T,
 
     @Override
     public Object getVersion(T domainObject) {
-        return domainObject;
+        return domainObject.getVersion();
     }
 
 }

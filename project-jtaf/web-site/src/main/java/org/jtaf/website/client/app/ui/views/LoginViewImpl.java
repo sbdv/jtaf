@@ -1,6 +1,8 @@
 package org.jtaf.website.client.app.ui.views;
 
+import org.jtaf.website.client.app.domain.entities.UserProfileProxy;
 import org.jtaf.website.client.app.ui.component.LoadingForm;
+import org.jtaf.website.client.app.ui.component.Profile;
 import org.jtaf.website.client.app.ui.resources.JtafResources;
 
 import com.google.gwt.core.client.GWT;
@@ -19,10 +21,12 @@ public class LoginViewImpl extends Composite implements LoginView {
     private static LoginUiBinder uiBinder = GWT.create(LoginUiBinder.class);
     private Presenter presenter;
     private final LoadingForm loadingForm = new LoadingForm();
+    private final Profile profile = new Profile();
     @UiField
     HTMLPanel basePanel;
     @UiField
     Image imgLogin;
+    
 
     interface LoginUiBinder extends UiBinder<Widget, LoginViewImpl> {
     }
@@ -45,9 +49,11 @@ public class LoginViewImpl extends Composite implements LoginView {
     }
 
     @Override
-    public void logged() {
+    public void logged(UserProfileProxy userProfileProxy) {
+        basePanel.remove(imgLogin);
         basePanel.remove(loadingForm);
-        basePanel.add(imgLogin);
+        profile.setProfile(userProfileProxy);
+        basePanel.add(profile);
     }
 
     @Override

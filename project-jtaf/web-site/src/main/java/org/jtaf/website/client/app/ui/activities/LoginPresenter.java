@@ -4,6 +4,7 @@ import org.jtaf.website.client.app.domain.access.JtafRequestFactory;
 import org.jtaf.website.client.app.domain.access.UserProfileRequest;
 import org.jtaf.website.client.app.domain.entities.UserProfileProxy;
 import org.jtaf.website.client.app.ui.event.LoadingUserDataEvent;
+import org.jtaf.website.client.app.ui.event.LoadingUserDataHandler;
 import org.jtaf.website.client.app.ui.views.LoginView;
 import org.jtaf.website.client.app.ui.views.LoginView.Presenter;
 import org.jtaf.website.client.security.domain.access.SecuredReceiver;
@@ -35,6 +36,7 @@ public class LoginPresenter implements Presenter {
     private static final String DEFAULT_SPRING_LOGIN_URL = "j_spring_security_check";
     private final LoginView loginView;
     private final HandlerManager handlerManager;
+    private final JtafRequestFactory requestFactory;
 
     private String springLoginUrl = null;
 
@@ -46,14 +48,32 @@ public class LoginPresenter implements Presenter {
     }
 
     @Inject
-    public LoginPresenter(LoginView loginView, HandlerManager handlerManager) {
+    public LoginPresenter(LoginView loginView, HandlerManager handlerManager, JtafRequestFactory requestFactory) {
         this.loginView = loginView;
         this.handlerManager = handlerManager;
+		this.requestFactory = requestFactory;
         bind();
     }
 
     private void bind() {
-       
+    	handlerManager.addHandler(LoadingUserDataEvent.TYPE,
+				new LoadingUserDataHandler() {
+
+					@Override
+					public void onLoadingUserData(LoadingUserDataEvent event) {
+						UserProfileRequest userRequest = requestFactory
+								.getUserProfileRequest();
+						userRequest.userProfileInformation().fire(
+								new SecuredReceiver<UserProfileProxy>() {
+
+									@Override
+									public void onSuccess(
+											UserProfileProxy response) {	
+										loginView.logged(response);
+									}
+								});
+					}
+				});
     }
 
     @Override
