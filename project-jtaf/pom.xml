@@ -265,6 +265,31 @@
 			<plugins>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.2.1</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>exec</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>						
+						<id>VerifyRequestFactoryInterfaces</id>
+						<executable>java</executable>
+						<arguments>
+							<argument>-cp</argument>
+							<classpath />
+							<argument>com.google.web.bindery.requestfactory.apt.ValidationTool
+							</argument>
+							<argument>${project.build.outputDirectory}</argument>
+							<argument>${project.groupId}.website.client.app.domain.access.JtafRequestFactory
+							</argument>
+						</arguments>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>gwt-maven-plugin</artifactId>
 					<version>${gwt-version}</version>
 					<executions>
@@ -314,32 +339,6 @@
 						<source>${java-version}</source>
 						<target>${java-version}</target>
 					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>exec-maven-plugin</artifactId>
-					<version>1.2.1</version>
-					<executions>
-						<execution>
-							<phase>process-classes</phase>
-							<goals>
-								<goal>exec</goal>
-							</goals>
-							<configuration>
-								<id>VerifyRequestFactoryInterfaces</id>
-								<executable>java</executable>
-								<arguments>
-									<argument>-cp</argument>
-									<classpath />
-									<argument>com.google.web.bindery.requestfactory.apt.ValidationTool
-									</argument>
-									<argument>${project.build.outputDirectory}</argument>
-									<argument>${project.groupId}.website.client.app.domain.access.JtafRequestFactory
-									</argument>
-								</arguments>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
