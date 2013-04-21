@@ -1,4 +1,4 @@
-package org.jtaf.website.client.app.ui.component;
+package org.jtaf.website.client.app.ui.widgets;
 
 import org.jtaf.website.client.app.ui.resources.JtafResources;
 

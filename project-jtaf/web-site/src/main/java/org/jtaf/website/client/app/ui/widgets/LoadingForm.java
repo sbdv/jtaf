@@ -1,4 +1,4 @@
-package org.jtaf.website.client.app.ui.component;
+package org.jtaf.website.client.app.ui.widgets;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;

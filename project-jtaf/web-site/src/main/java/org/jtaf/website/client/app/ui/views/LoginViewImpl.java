@@ -1,9 +1,8 @@
 package org.jtaf.website.client.app.ui.views;
 
-import org.jtaf.website.client.app.domain.entities.UserProfileProxy;
-import org.jtaf.website.client.app.ui.component.LoadingForm;
-import org.jtaf.website.client.app.ui.component.Profile;
 import org.jtaf.website.client.app.ui.resources.JtafResources;
+import org.jtaf.website.client.app.ui.widgets.LoadingForm;
+import org.jtaf.website.client.app.ui.widgets.Profile;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -49,10 +48,9 @@ public class LoginViewImpl extends Composite implements LoginView {
     }
 
     @Override
-    public void logged(UserProfileProxy userProfileProxy) {
+    public void logged() {
         basePanel.remove(imgLogin);
         basePanel.remove(loadingForm);
-        profile.setProfile(userProfileProxy);
         basePanel.add(profile);
     }
 
@@ -66,5 +64,10 @@ public class LoginViewImpl extends Composite implements LoginView {
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
     }
+
+	@Override
+	public Profile getProfile() {
+		return profile;
+	}
 
 }

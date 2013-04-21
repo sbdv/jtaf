@@ -3,12 +3,12 @@ package org.jtaf.website.client.app.ui.activities;
 import org.jtaf.website.client.app.domain.access.JtafRequestFactory;
 import org.jtaf.website.client.app.domain.access.UserProfileRequest;
 import org.jtaf.website.client.app.domain.entities.UserProfileProxy;
-import org.jtaf.website.client.app.ui.component.Status;
 import org.jtaf.website.client.app.ui.event.LoadingUserDataEvent;
 import org.jtaf.website.client.app.ui.event.LoadingUserDataHandler;
 import org.jtaf.website.client.app.ui.resources.JtafResources;
 import org.jtaf.website.client.app.ui.views.BackboneView;
 import org.jtaf.website.client.app.ui.views.LoginView;
+import org.jtaf.website.client.app.ui.widgets.Status;
 import org.jtaf.website.client.security.domain.access.SecuredReceiver;
 
 import com.google.gwt.activity.shared.AbstractActivity;
@@ -61,7 +61,7 @@ public class HomeActivity extends AbstractActivity implements
 					@Override
 					public void onSuccess(
 							UserProfileProxy response) {
-						loginComponent.logged(response);
+						loginPresenter.alreadyLogged(response);
 					}
 				});
 		panel.setWidget(backBoneView);

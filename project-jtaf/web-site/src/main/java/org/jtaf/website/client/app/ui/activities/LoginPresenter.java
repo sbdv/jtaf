@@ -7,6 +7,7 @@ import org.jtaf.website.client.app.ui.event.LoadingUserDataEvent;
 import org.jtaf.website.client.app.ui.event.LoadingUserDataHandler;
 import org.jtaf.website.client.app.ui.views.LoginView;
 import org.jtaf.website.client.app.ui.views.LoginView.Presenter;
+import org.jtaf.website.client.app.ui.widgets.Profile;
 import org.jtaf.website.client.security.domain.access.SecuredReceiver;
 
 import com.google.api.gwt.oauth2.client.Auth;
@@ -19,8 +20,8 @@ import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
-import com.google.gwt.user.client.Window;
 import com.google.inject.Inject;
+import com.google.web.bindery.requestfactory.gwt.client.RequestFactoryEditorDriver;
 
 public class LoginPresenter implements Presenter {
 
@@ -37,6 +38,7 @@ public class LoginPresenter implements Presenter {
     private final LoginView loginView;
     private final HandlerManager handlerManager;
     private final JtafRequestFactory requestFactory;
+    private LoginEditorDriver loginEditorDriver;
 
     private String springLoginUrl = null;
 
@@ -56,6 +58,9 @@ public class LoginPresenter implements Presenter {
     }
 
     private void bind() {
+    	//init databinding
+    	loginEditorDriver = LoginEditorDriver.Util.getInstance();
+    	loginEditorDriver.initialize(loginView.getProfile());
     	handlerManager.addHandler(LoadingUserDataEvent.TYPE,
 				new LoadingUserDataHandler() {
 
@@ -69,7 +74,8 @@ public class LoginPresenter implements Presenter {
 									@Override
 									public void onSuccess(
 											UserProfileProxy response) {	
-										loginView.logged(response);
+										loginView.logged();
+										loginEditorDriver.display(response);
 									}
 								});
 					}
@@ -128,5 +134,27 @@ public class LoginPresenter implements Presenter {
             }
         });
     }
+    
+    public interface LoginEditorDriver extends RequestFactoryEditorDriver<UserProfileProxy, Profile>{
+    	public class Util{
+    		private Util(){
+    			
+    		}
+    		private static LoginEditorDriver loginEditorDriver;
+    		
+    		public static LoginEditorDriver getInstance(){
+    			if(loginEditorDriver == null){
+    				loginEditorDriver = GWT.create(LoginEditorDriver.class);
+    			}
+    			return loginEditorDriver;
+    		}
+    	}
+    }
+
+	@Override
+	public void alreadyLogged(UserProfileProxy user) {
+		loginEditorDriver.display(user);
+		loginView.logged();
+	}
 
 }

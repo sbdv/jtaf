@@ -1,0 +1,27 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:comp="urn:import:org.jtaf.website.client.app.ui.components"
+	>
+	<ui:with type="org.jtaf.website.client.app.ui.resources.JtafResources" field="res"></ui:with>
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+			<table>
+				<tr>
+					<td rowspan="3">
+						<comp:ImgAvatar ui:field="avatar" width="70px" height="70px" resources="{res}" />
+					</td>
+					<td>					
+						<b><div><comp:LabelJtaf ui:field="givenName" />					
+						<comp:LabelJtaf ui:field="lastName" /></div></b>
+					</td>	
+				</tr>
+				<tr>
+					<td rowspan="2">
+						<em><comp:LabelJtaf ui:field="pseudo" /></em>
+					</td>
+				</tr>
+			</table>
+		</g:HTMLPanel>
+</ui:UiBinder> 
