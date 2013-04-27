@@ -5,10 +5,13 @@ import com.google.gwt.resources.client.ImageResource;
 
 public interface JtafResources extends ClientBundle {
 	
-	@Source("images/sign-in-with-google.png")
+	@Source("images/gmailID.png")
 	ImageResource signInWithGoogle();
 	
 	@Source("images/jtaf.png")
 	ImageResource jtafLogo();
+	
+	@Source("images/loadingBar.gif")
+	ImageResource loadingBar();
 
 }

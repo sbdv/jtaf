@@ -63,6 +63,11 @@ public class HomeActivity extends AbstractActivity implements
 							UserProfileProxy response) {
 						loginPresenter.alreadyLogged(response);
 					}
+
+					@Override
+					public void onAccessDenied() {
+						loginPresenter.notLogged();
+					}		
 				});
 		panel.setWidget(backBoneView);
 		loginComponent.setPresenter(loginPresenter);

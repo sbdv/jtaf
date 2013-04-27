@@ -13,13 +13,13 @@
 						<comp:ImgAvatar ui:field="avatar" width="70px" height="70px" resources="{res}" />
 					</td>
 					<td>					
-						<b><div><comp:LabelJtaf ui:field="givenName" />					
-						<comp:LabelJtaf ui:field="lastName" /></div></b>
+						<b><comp:LabelJtaf ui:field="givenName" stylePrimaryName="pull-left" /></b>
 					</td>	
+					<td><b><comp:LabelJtaf ui:field="lastName" stylePrimaryName="pull-left"/></b></td>
 				</tr>
 				<tr>
-					<td rowspan="2">
-						<em><comp:LabelJtaf ui:field="pseudo" /></em>
+					<td rowspan="2" colspan="2">
+						<em><comp:LabelJtaf ui:field="pseudo" stylePrimaryName="pull-left"/></em>
 					</td>
 				</tr>
 			</table>

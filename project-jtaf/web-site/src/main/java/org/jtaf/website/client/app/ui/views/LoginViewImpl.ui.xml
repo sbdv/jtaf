@@ -2,8 +2,29 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
+		
 	</ui:style>
 	<g:HTMLPanel ui:field="basePanel" stylePrimaryName="row-fluid">
-		<g:Image ui:field="imgLogin"/>
+		<table style="width:100%">
+			<tr>
+				<td style="text-align:center">
+					<g:Image ui:field="imgLogin" />
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:center">
+					<g:Label text="Relevez le défi de l'équipe !" ui:field="title" />
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:center">
+					<g:Button ui:field="btnLogin" stylePrimaryName="btn"
+						width="220px" height="30px" text="Connectez-vous avec Gmail"
+						visible="false" />
+					<g:Image ui:field="imgLoading" />
+				</td>
+			</tr>
+
+		</table>
 	</g:HTMLPanel>
-</ui:UiBinder> 
+</ui:UiBinder>

@@ -157,4 +157,9 @@ public class LoginPresenter implements Presenter {
 		loginView.logged();
 	}
 
+	@Override
+	public void notLogged() {
+		loginView.notLogged();	
+	}
+
 }

@@ -22,5 +22,7 @@ public interface LoginView extends IsWidget {
         void processLogin();
         
         void alreadyLogged(UserProfileProxy user);
+        
+        void notLogged();
     }
 }
