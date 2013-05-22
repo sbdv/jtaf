@@ -9,14 +9,13 @@
 			<li>
 				<a href="#">Accueil</a>
 			</li>
-			<li><a href="#">Défis</a></li>
-			<li><a href="#">Jeux</a></li>
 			<li><a href="#">JTAF</a></li>
-			<li><a href="#">Contact</a></li>
-			<li><a href="#">Moi</a></li>
+			<li><a href="#">Groupes</a></li>
+			<li><a href="#">D&eacute;fis et Gages</a></li>
 		</ul>
 		<form class="navbar-search pull-left">
 		  <input type="text" class="search-query" placeholder="Search"/>
+		  <img src="http://92.243.14.239:8080/site-jtaf/images/site/icons/sbdv_100px.png" style="width:30px" />
 		</form>
 	</g:HTMLPanel>
 </ui:UiBinder> 
