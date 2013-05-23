@@ -76,6 +76,8 @@ public class HomeActivity extends AbstractActivity implements
 		backBoneView.getWallContainer().add(new Status(resources));
 		backBoneView.getWallContainer().add(new Status(resources));
 		backBoneView.getWallContainer().add(new Status(resources));
+		backBoneView.getWallContainer().add(new Status(resources));
+		backBoneView.getWallContainer().add(new Status(resources));
 	}
 
 	@Override

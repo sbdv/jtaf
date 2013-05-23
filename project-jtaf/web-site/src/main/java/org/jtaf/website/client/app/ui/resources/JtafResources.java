@@ -31,5 +31,11 @@ public interface JtafResources extends ClientBundle {
 	
 	@Source("images/avatarTemp/orni-avatar.png")
 	ImageResource loadingAvatarOrni();
+	
+	@Source("images/avatarTemp/panda-avatar.png")
+	ImageResource loadingAvatarPanda();
+	
+	@Source("images/avatarTemp/mathieu-bellange.jpg")
+	ImageResource loadingAvatarMathieu();
 
 }

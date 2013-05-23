@@ -57,7 +57,7 @@ public class Status extends Composite {
 
 		case 1:
 			pseudo.setText("Panda");
-			avatar.setResource(jtafResources.loadingAvatarUnkown());
+			avatar.setResource(jtafResources.loadingAvatarPanda());
 			break;
 
 		case 2:
@@ -67,7 +67,7 @@ public class Status extends Composite {
 
 		case 3:
 			pseudo.setText("MathieuBellange");
-			avatar.setResource(jtafResources.loadingAvatarUnkown());
+			avatar.setResource(jtafResources.loadingAvatarMathieu());
 			break;
 			
 		case 4:
