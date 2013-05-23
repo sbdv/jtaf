@@ -11,8 +11,8 @@
 						<g:Image ui:field="avatar" width="70px" height="70px" />
 					</th>
 					<th>
-						<g:Anchor ui:field="pseudo" stylePrimaryName="pull-left" href="#">Prénom Nom <em>Pseudo</em></g:Anchor>
-						<g:Label ui:field="date" stylePrimaryName="pull-right">Date du status</g:Label>
+						<g:Anchor ui:field="pseudo" stylePrimaryName="pull-left" href="#"></g:Anchor>
+						<g:Label ui:field="date" stylePrimaryName="pull-right">22 mai 2013</g:Label>
 					</th>	
 				</tr>
 				<tr>
