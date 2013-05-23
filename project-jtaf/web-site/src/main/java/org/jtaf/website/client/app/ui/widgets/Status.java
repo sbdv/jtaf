@@ -26,10 +26,9 @@ public class Status extends Composite {
 
 	public Status(JtafResources jtafResources) {
 		initWidget(uiBinder.createAndBindUi(this));
-		avatar.setResource(jtafResources.jtafLogo());
-
-		pseudo.setText(randomPseudo());
-
+		
+		randomPseudo(jtafResources);
+				
 		date.setText(randomDate());
 	}
 
@@ -49,37 +48,42 @@ public class Status extends Composite {
 	/**
 	 * TODO : A virer. Sert uniquement pour des tests
 	 */
-	private String randomPseudo() {
-		String pseudo2 = "defaut";
+	private void randomPseudo(JtafResources jtafResources) {
 		switch ((int) Math.round(Math.random() * 5)) {
 		case 0:
-			pseudo2 = "Mr.Renard";
+			pseudo.setText("Mr.Renard");
+			avatar.setResource(jtafResources.loadingAvatarRenard());
 			break;
 
 		case 1:
-			pseudo2 = "Panda";
+			pseudo.setText("Panda");
+			avatar.setResource(jtafResources.loadingAvatarUnkown());
 			break;
 
 		case 2:
-			pseudo2 = "EtoileDeMer";
+			pseudo.setText("EtoileDeMer");
+			avatar.setResource(jtafResources.loadingAvatarEtoile());
 			break;
 
 		case 3:
-			pseudo2 = "MathieuBellange";
+			pseudo.setText("MathieuBellange");
+			avatar.setResource(jtafResources.loadingAvatarUnkown());
 			break;
 			
 		case 4:
-			pseudo2 = "OursPolaire";
+			pseudo.setText("Ornithorynque");
+			avatar.setResource(jtafResources.loadingAvatarOrni());
 			break;
 			
 		case 5:
-			pseudo2 = "PseudoIncroyablementLoooooooooong";
+			pseudo.setText("PseudoIncroyablementLoooooooooong");
+			avatar.setResource(jtafResources.loadingAvatarUnkown());
 			break;
 
 		default:
-			pseudo2 = "JTAFeur invité";
+			pseudo.setText("JTAFeur invité");
+			avatar.setResource(jtafResources.loadingAvatarUnkown());
 		}
-		return pseudo2;
 	}
 
 }

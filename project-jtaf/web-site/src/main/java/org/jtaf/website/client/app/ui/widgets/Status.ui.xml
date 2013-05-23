@@ -8,7 +8,7 @@
 			<table>
 				<tr>
 					<th rowspan="3">
-						<g:Image ui:field="avatar" width="70px" height="70px" />
+						<g:Image ui:field="avatar" />
 					</th>
 					<th>
 						<g:Anchor ui:field="pseudo" stylePrimaryName="pull-left" href="#"></g:Anchor>
