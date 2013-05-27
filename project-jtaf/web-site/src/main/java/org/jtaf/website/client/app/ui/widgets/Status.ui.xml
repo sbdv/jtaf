@@ -3,21 +3,21 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>		
 	</ui:style>
-	<g:HTMLPanel stylePrimaryName="status alert">
-		<g:HTMLPanel stylePrimaryName="row-fluid">
+	<g:HTMLPanel stylePrimaryName="status">
+		<g:HTMLPanel stylePrimaryName="status-container row-fluid">
 			<table>
 				<tr>
-					<th rowspan="3">
+					<th rowspan="3" style="padding-right:10px;">
 						<g:Image ui:field="avatar" />
 					</th>
-					<th>
-						<g:Anchor ui:field="pseudo" stylePrimaryName="pull-left" href="#"></g:Anchor>
-						<g:Label ui:field="date" stylePrimaryName="pull-right">22 mai 2013</g:Label>
+					<th style="margin-top: 0;margin-bottom: 0;border-bottom: 1px solid rgb(96,152,232);padding-bottom: 0;padding-right:0;">
+						<g:Anchor ui:field="pseudo" stylePrimaryName="status-pseudo pull-left" href="#"></g:Anchor>
+						<g:Label ui:field="date" stylePrimaryName="status-date pull-right">22 mai 2013</g:Label>
 					</th>	
 				</tr>
 				<tr>
 					<td>
-						<g:HTMLPanel stylePrimaryName="well status-content">
+						<g:HTMLPanel stylePrimaryName="status-content">
 							<p>
 								Ceci est un test de status !
 							</p>

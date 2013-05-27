@@ -4,8 +4,12 @@ body{
 }
 
 .status{
-	padding: 8px 14px;
-	margin-bottom: 5px;
+	border-left: 1px solid rgb(192,192,192);
+	border-right: 1px solid rgb(192,192,192);
+	padding-left: 10px;
+	padding-right: 20px;
+	font-size: 12px;
+	background-color: rgb(240,244,248);
 }
 
 .status th:FIRST-CHILD{
@@ -22,9 +26,27 @@ body{
 	display: table;
 	table-layout: fixed;
 }
-
+.status-container{
+	border-bottom: 1px dotted rgba(96,152,232,0.5);
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
 .status-content *{
 	max-width: 100%;
+}
+.status-date{
+	color: white;
+	font-weight: bold;
+	background-color: rgb(96,152,232);
+	padding: 1px 4px;
+}
+.status-pseudo{
+	color: rgb(240,144,0);
+	font-weight: bold;
+	font-size: 13px;
+}
+.status p{
+	border-width: 0;
 }
 .img-align{
 	margin-left:auto;
