@@ -3,8 +3,8 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>		
 	</ui:style>
-	<g:HTMLPanel stylePrimaryName="status">
-		<g:HTMLPanel stylePrimaryName="status-container row-fluid">
+	<g:HTMLPanel ui:field="container" stylePrimaryName="status-container row-fluid">
+		<g:HTMLPanel ui:field="status" stylePrimaryName="status">
 			<table>
 				<tr>
 					<th rowspan="3" style="padding-right:10px;">

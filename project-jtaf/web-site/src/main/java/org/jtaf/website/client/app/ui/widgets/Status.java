@@ -7,83 +7,90 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
 public class Status extends Composite {
 
-	private static StatusUiBinder uiBinder = GWT.create(StatusUiBinder.class);
-	@UiField
-	Image avatar;
-	@UiField
-	Anchor pseudo;
-	@UiField
-	Label date;
+    private static StatusUiBinder uiBinder = GWT.create(StatusUiBinder.class);
+    @UiField
+    Image avatar;
+    @UiField
+    Anchor pseudo;
+    @UiField
+    Label date;
+    @UiField
+    HTMLPanel status;
 
-	interface StatusUiBinder extends UiBinder<Widget, Status> {
-	}
+    interface StatusUiBinder extends UiBinder<Widget, Status> {
+    }
 
-	public Status(JtafResources jtafResources) {
-		initWidget(uiBinder.createAndBindUi(this));
-		
-		randomPseudo(jtafResources);
-				
-		date.setText(randomDate());
-	}
+    public Status(JtafResources jtafResources, boolean isFirst, boolean isLast) {
+        initWidget(uiBinder.createAndBindUi(this));
+        if (isFirst) {
+            this.addStyleName("first");
+            status.addStyleName("first");
+        }
+        if (isLast) {
+            status.addStyleName("last");
+            this.addStyleName("last");
+        }
+        randomPseudo(jtafResources);
 
-	/**
-	 * TODO : A virer. Sert uniquement pour des tests
-	 */
-	private String randomDate() {
-		String annee = String
-				.valueOf(2010 + (int) Math.round(Math.random() * (3)));
-		String mois = String
-				.valueOf(1 + (int) Math.round(Math.random() * (12)));
-		String jours = String
-				.valueOf(1 + (int) Math.round(Math.random() * (30)));
-		return "Le " + jours + "/" + mois + "/" + annee;
-	}
+        date.setText(randomDate());
+    }
 
-	/**
-	 * TODO : A virer. Sert uniquement pour des tests
-	 */
-	private void randomPseudo(JtafResources jtafResources) {
-		switch ((int) Math.round(Math.random() * 5)) {
-		case 0:
-			pseudo.setText("Mr.Renard");
-			avatar.setResource(jtafResources.loadingAvatarRenard());
-			break;
+    /**
+     * TODO : A virer. Sert uniquement pour des tests
+     */
+    private String randomDate() {
+        String annee = String.valueOf(2010 + (int) Math.round(Math.random() * (3)));
+        String mois = String.valueOf(1 + (int) Math.round(Math.random() * (12)));
+        String jours = String.valueOf(1 + (int) Math.round(Math.random() * (30)));
+        return "Le " + jours + "/" + mois + "/" + annee;
+    }
 
-		case 1:
-			pseudo.setText("Panda");
-			avatar.setResource(jtafResources.loadingAvatarPanda());
-			break;
+    /**
+     * TODO : A virer. Sert uniquement pour des tests
+     */
+    private void randomPseudo(JtafResources jtafResources) {
+        switch ((int) Math.round(Math.random() * 5)) {
+        case 0:
+            pseudo.setText("Mr.Renard");
+            avatar.setResource(jtafResources.loadingAvatarRenard());
+            break;
 
-		case 2:
-			pseudo.setText("EtoileDeMer");
-			avatar.setResource(jtafResources.loadingAvatarEtoile());
-			break;
+        case 1:
+            pseudo.setText("Panda");
+            avatar.setResource(jtafResources.loadingAvatarPanda());
+            break;
 
-		case 3:
-			pseudo.setText("MathieuBellange");
-			avatar.setResource(jtafResources.loadingAvatarMathieu());
-			break;
-			
-		case 4:
-			pseudo.setText("Ornithorynque");
-			avatar.setResource(jtafResources.loadingAvatarOrni());
-			break;
-			
-		case 5:
-			pseudo.setText("PseudoIncroyablementLoooooooooong");
-			avatar.setResource(jtafResources.loadingAvatarUnkown());
-			break;
+        case 2:
+            pseudo.setText("EtoileDeMer");
+            avatar.setResource(jtafResources.loadingAvatarEtoile());
+            break;
 
-		default:
-			pseudo.setText("JTAFeur invité");
-			avatar.setResource(jtafResources.loadingAvatarUnkown());
-		}
-	}
+        case 3:
+            pseudo.setText("MathieuBellange");
+            avatar.setResource(jtafResources.loadingAvatarMathieu());
+            break;
+
+        case 4:
+            pseudo.setText("Ornithorynque");
+            avatar.setResource(jtafResources.loadingAvatarOrni());
+            break;
+
+        case 5:
+            pseudo.setText("PseudoIncroyablementLoooooooooong");
+            avatar.setResource(jtafResources.loadingAvatarUnkown());
+            break;
+
+        default:
+            pseudo.setText("JTAFeur invité");
+            avatar.setResource(jtafResources.loadingAvatarUnkown());
+        }
+    }
 
 }

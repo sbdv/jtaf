@@ -12,7 +12,7 @@
 	    <g:HTMLPanel stylePrimaryName="container">
 			<g:HTMLPanel stylePrimaryName="row-fluid">
 				<g:HTMLPanel stylePrimaryName="span4">
-					<g:HTMLPanel ui:field="baseProfil" stylePrimaryName="status alert"/>
+					<g:HTMLPanel ui:field="baseProfil" stylePrimaryName="profile"/>
 				</g:HTMLPanel>
 				<g:HTMLPanel ui:field="baseWall" stylePrimaryName="span8" />
 			</g:HTMLPanel>
