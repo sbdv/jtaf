@@ -6,16 +6,16 @@
 	</ui:style>
 	<g:HTMLPanel stylePrimaryName="container">
 		<ul class="nav">
-			<li>
-				<a href="#">Accueil</a>
-			</li>
+			<li><a href="#">Accueil</a></li>
 			<li><a href="#">JTAF</a></li>
 			<li><a href="#">Groupes</a></li>
 			<li><a href="#">D&eacute;fis et Gages</a></li>
 		</ul>
-		<form class="navbar-search pull-left">
+		<div style="float:right">
+		  <form class="navbar-search pull-left">
 		  <input type="text" class="search-query" placeholder="Search"/>
-		  <img src="http://92.243.14.239:8080/site-jtaf/images/site/icons/sbdv_100px.png" style="width:30px" />
+		  <g:Image ui:field="imgSBDV" width="40px"  />
 		</form>
+		</div>
 	</g:HTMLPanel>
 </ui:UiBinder> 
