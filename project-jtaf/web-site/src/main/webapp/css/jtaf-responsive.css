@@ -1,0 +1,2239 @@
+/* 
+ * VERSION
+ * JTAF Responsive Design Cascading Style Sheet
+ * ver. beta 1
+ *
+ * DESIGNER NOTE
+ * The @media class below is just used to convert the default 1280px floating layout into a 1280px semi-static layout (i.e. fixed statbar).
+ * Rest of the layout settings lays below ; sorted by references usage. Heavy method, but pretty safe and nice for debug.
+ * It includes Display Sizing, Font Sizing, User Pictures and Components Shaping.
+ */
+
+/* ------------------------------------------------------------------ */
+/* # Media Queries support */
+/* ------------------------------------------------------------------ */
+
+@media {
+  .frame {
+    background-image: none;
+    margin: 0;
+  }
+  .wrapper{
+    width: 960px;
+  }
+  .navbar-static,
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    width: 960px;
+  }
+  .navbar-inner {
+    max-width: none;
+    max-height: none;
+  }
+  .statbar {
+    /*width: 290px; /* UNUSED */
+    top: 0;
+    left: 960px;
+    position: fixed;
+    background-color: rgb(232, 240, 248);
+    background-image: url('../img/status-background-grid.png'), url('../img/status-background-triangle.png');
+    background-repeat: repeat-y;
+    background-position: left top, right top;
+    border-left: 1px solid rgb(192, 192, 192);
+  }
+  .statbar.shift-down,
+  .statbar.shift-up {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .status {
+    width: auto;
+  }
+  .footer {
+    width: auto;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* # Navbar adjustement */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 959px) {
+  .header.shift-down {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .footer.shift-up {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar-fixed-bottom .navbar-inner {
+    -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+       -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* # Display Sizing */
+/* ------------------------------------------------------------------ */
+
+/* Hi-res ----------------------------------------------------------- */
+
+@media (min-width: 2880px) {
+  .frame {
+    width: 54.25%;
+    left: 12.875%;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    width: 54.25%;
+    left: 12.875%;
+  }
+  .statbar {
+    min-width: 20%;
+    left: 67.125%;
+  }
+}
+
+@media (min-width: 2720px) and (max-width: 2879px) {
+  .frame {
+    width: 56.25%;
+    left: 11.5%;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    width: 56.25%;
+    left: 11.5%;
+  }
+  .statbar {
+    min-width: 20.75%;
+    left: 67.75%;
+  }
+}
+
+@media (min-width: 2560px) and (max-width: 2719px) {
+  .frame {
+    width: 58.5%;
+    left: 10%;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    width: 58.5%;
+    left: 10%;
+  }
+  .statbar {
+    min-width: 21.5%;
+    left: 68.5%;
+  }
+}
+
+@media (min-width: 2400px) and (max-width: 2559px) {
+  .frame {
+    width: 61.25%;
+    left: 8.25%;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    width: 61.25%;
+    left: 8.25%;
+  }
+  .statbar {
+    min-width: 22.25%;
+    left: 69.5%;
+  }
+}
+
+@media (min-width: 2240px) and (max-width: 2399px) {
+  .frame {
+    width: 64.25%;
+    left: 6.25%;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    width: 64.25%;
+    left: 6.25%;
+  }
+  .statbar {
+    min-width: 23.25%;
+    left: 70.5%;
+  }
+}
+
+@media (min-width: 2080px) and (max-width: 2239px) {
+  .frame {
+    width: 66.5%;
+    left: 5%;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    width: 66.5%;
+    left: 5%;
+  }
+  .statbar {
+    min-width: 23.5%;
+    left: 71.5%;
+  }
+}
+
+@media (min-width: 1920px) and (max-width: 2079px) {
+  .frame {
+    width: 68.75%;
+    left: 3.625%;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    width: 68.75%;
+    left: 3.625%;
+  }
+  .statbar {
+    min-width: 24%;
+    left: 72.375%;
+  }
+}
+
+@media (min-width: 1760px) and (max-width: 1919px) {
+  .frame {
+    width: 71.5%;
+    left: 2%;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    width: 71.5%;
+    left: 2%;
+  }
+  .statbar {
+    min-width: 24.5%;
+    left: 73.5%;
+  }
+}
+
+@media (min-width: 1760px) {
+  .frame {
+    border-left: 1px solid rgb(192, 192, 192);
+  }
+}
+
+/* Medium-res ------------------------------------------------------- */
+
+@media (min-width: 1280px) and (max-width: 1759px) {
+  .frame {
+    width: 75%;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    width: 75%;
+  }
+  .statbar {
+    min-width: 25%;
+    left: 75%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .wrapper{
+    width: 100%;
+  }
+  .navbar-static {
+    width: 100%;
+  }
+  .sidebar {
+    width: 33.33%;
+  }
+  .content {
+    width: 66.67%;
+  }
+  .statbar {
+    height: 100%;
+  }
+}
+
+/* Low-res ---------------------------------------------------------- */
+
+@media (max-width: 1279px) {
+  .frame {
+    width: 100%;
+  }
+  .wrapper{
+    width: 100%;
+  }
+  .navbar-static,
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    width: 100%;
+  }
+  .statbar {
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 1120px) and (max-width: 1279px) {
+  .sidebar {
+    width: 28.5%;
+  }
+  .content {
+    width: 71.5%;
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1119px) {
+  .sidebar {
+    width: 29.25%;
+  }
+  .content {
+    width: 70.75%;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 959px) {
+  .sidebar {
+    width: 35%;
+  }
+  .content {
+    width: 65%;
+  }
+}
+
+@media (max-width: 799px) {
+  .sidebar {
+    display: none;
+  }
+  .content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 460px) { /* TEMP : used to avoid horizontal scrolling for elements > to screen width (e.g. btn-group) */
+  .wrapper {
+    max-width: 460px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 320px) { /* TEMP : used to avoid horizontal scrolling for elements > to screen width (e.g. btn-group) */
+  .wrapper {
+    max-width: 320px;
+    overflow: hidden;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* # Font Sizing */
+/* ------------------------------------------------------------------ */
+
+/* Hi-res ----------------------------------------------------------- */
+
+@media (min-width: 2720px) {
+  body,
+  label,
+  input,
+  button,
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input,
+  .input-append input,
+  .input-prepend input,
+  .input-append select,
+  .input-prepend select,
+  .input-append .uneditable-input,
+  .input-prepend .uneditable-input,
+  .input-append .dropdown-menu,
+  .input-prepend .dropdown-menu,
+  .input-append .popover,
+  .input-prepend .popover,
+  .input-append .add-on,
+  .input-prepend .add-on,
+  .btn,
+  .btn-group > .btn,
+  .btn-group > .dropdown-menu,
+  .btn-group > .popover,
+  .navbar-search .search-query,
+  .popover-title {
+    font-size: 18px;
+    line-height: 25.5px;
+  }
+  address,
+  blockquote small,
+  li,
+  dt,
+  dd,
+  .table th,
+  .table td,
+  .dropdown-menu > li > a,
+  .nav-tabs > li > a,
+  .nav-pills > li > a,
+  .pagination ul > li > a,
+  .pagination ul > li > span {
+    line-height: 25.5px;
+  }
+  h1 {
+    font-size: 47px;
+    line-height: 68px;
+  }
+  h2,
+  h1 small {
+    font-size: 39px;
+  }
+  h2 {
+    line-height: 57px;
+  }
+  h3,
+  h2 small {
+    font-size: 33px;
+  }
+  h3,
+  .modal-header h3 {
+    line-height: 48px;
+  }
+  h4,
+  h3 small {
+    font-size: 27px;
+  }
+  h4 {
+    line-height: 39px;
+  }
+  h5,
+  h4 small {
+    font-size: 21px;
+  }
+  h5 {
+    line-height: 30px;
+  }
+  h6,
+  h5 small {
+    font-size: 18px;
+  }
+  h6 {
+    line-height: 25.5px;
+  }
+  h6 small {
+    font-size: 15px;
+  }
+  blockquote p {
+    font-size: 23px;
+  }
+  legend,
+  .lead {
+    font-size: 31px;
+    line-height: 45px;
+  }
+  legend small {
+    font-size: 20px;
+  }
+  code,
+  pre,
+  .label,
+  .badge {
+    font-size: 17px;
+    line-height: 24px;
+  }
+  .btn-mini,
+  .btn-group > .btn-mini,
+  .pagination-mini ul > li > a,
+  .pagination-mini ul > li > span {
+    font-size: 15px;
+  }
+  .btn-small,
+  .btn-group > .btn-small,
+  .pagination-small ul > li > a,
+  .pagination-small ul > li > span {
+    font-size: 17px;
+  }
+  .btn-large,
+  .btn-group > .btn-large,
+  .pagination-large ul > li > a,
+  .pagination-large ul > li > span {
+    font-size: 23px;
+  }
+  .tooltip,
+  .nav-header {
+    font-size: 16px;
+  }
+  .nav-header {
+    line-height: 22.5px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a {
+    font-size: 21px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a,
+  .nav-collapse.collapse {
+    line-height: 38px;
+  }
+  .progress .bar {
+    font-size: 17px;
+  }
+  .hero-unit {
+    font-size: 25px;
+  }
+  .hero-unit,
+  .hero-unit li {
+    line-height: 36px;
+  }
+  .hero-unit h1 {
+    font-size: 61px;
+  }
+}
+
+@media (min-width: 2400px) and (max-width: 2719px) {
+  body,
+  label,
+  input,
+  button,
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input,
+  .input-append input,
+  .input-prepend input,
+  .input-append select,
+  .input-prepend select,
+  .input-append .uneditable-input,
+  .input-prepend .uneditable-input,
+  .input-append .dropdown-menu,
+  .input-prepend .dropdown-menu,
+  .input-append .popover,
+  .input-prepend .popover,
+  .input-append .add-on,
+  .input-prepend .add-on,
+  .btn,
+  .btn-group > .btn,
+  .btn-group > .dropdown-menu,
+  .btn-group > .popover,
+  .navbar-search .search-query,
+  .popover-title {
+    font-size: 17px;
+    line-height: 24px;
+  }
+  address,
+  blockquote small,
+  li,
+  dt,
+  dd,
+  .table th,
+  .table td,
+  .dropdown-menu > li > a,
+  .nav-tabs > li > a,
+  .nav-pills > li > a,
+  .pagination ul > li > a,
+  .pagination ul > li > span {
+    line-height: 24px;
+  }
+  h1 {
+    font-size: 44px;
+    line-height: 64px;
+  }
+  h2,
+  h1 small {
+    font-size: 37px;
+  }
+  h2 {
+    line-height: 54px;
+  }
+  h3,
+  h2 small {
+    font-size: 31px;
+  }
+  h3,
+  .modal-header h3 {
+    line-height: 45px;
+  }
+  h4,
+  h3 small {
+    font-size: 25px;
+  }
+  h4 {
+    line-height: 36px;
+  }
+  h5,
+  h4 small {
+    font-size: 20px;
+  }
+  h5 {
+    line-height: 28.5px;
+  }
+  h6,
+  h5 small {
+    font-size: 17px;
+  }
+  h6 {
+    line-height: 24px;
+  }
+  h6 small {
+    font-size: 14px;
+  }
+  blockquote p {
+    font-size: 21px;
+  }
+  legend,
+  .lead {
+    font-size: 29px;
+    line-height: 42px;
+  }
+  legend small {
+    font-size: 19px;
+  }
+  code,
+  pre,
+  .label,
+  .badge {
+    font-size: 16px;
+    line-height: 22.5px;
+  }
+  .btn-mini,
+  .btn-group > .btn-mini,
+  .pagination-mini ul > li > a,
+  .pagination-mini ul > li > span {
+    font-size: 14px;
+  }
+  .btn-small,
+  .btn-group > .btn-small,
+  .pagination-small ul > li > a,
+  .pagination-small ul > li > span {
+    font-size: 16px;
+  }
+  .btn-large,
+  .btn-group > .btn-large,
+  .pagination-large ul > li > a,
+  .pagination-large ul > li > span {
+    font-size: 21px;
+  }
+  .tooltip,
+  .nav-header {
+    font-size: 15px;
+  }
+  .nav-header {
+    line-height: 21px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a {
+    font-size: 20px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a,
+  .nav-collapse.collapse {
+    line-height: 38px;
+  }
+  .progress .bar {
+    font-size: 16px;
+  }
+  .hero-unit {
+    font-size: 23px;
+  }
+  .hero-unit,
+  .hero-unit li {
+    line-height: 33px;
+  }
+  .hero-unit h1 {
+    font-size: 59px;
+  }
+}
+
+@media (min-width: 2080px) and (max-width: 2399px) {
+  body,
+  label,
+  input,
+  button,
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input,
+  .input-append input,
+  .input-prepend input,
+  .input-append select,
+  .input-prepend select,
+  .input-append .uneditable-input,
+  .input-prepend .uneditable-input,
+  .input-append .dropdown-menu,
+  .input-prepend .dropdown-menu,
+  .input-append .popover,
+  .input-prepend .popover,
+  .input-append .add-on,
+  .input-prepend .add-on,
+  .btn,
+  .btn-group > .btn,
+  .btn-group > .dropdown-menu,
+  .btn-group > .popover,
+  .navbar-search .search-query,
+  .popover-title {
+    font-size: 16px;
+    line-height: 22.5px;
+  }
+  address,
+  blockquote small,
+  li,
+  dt,
+  dd,
+  .table th,
+  .table td,
+  .dropdown-menu > li > a,
+  .nav-tabs > li > a,
+  .nav-pills > li > a,
+  .pagination ul > li > a,
+  .pagination ul > li > span {
+    line-height: 22.5px;
+  }
+  h1 {
+    font-size: 41px;
+    line-height: 60px;
+  }
+  h2,
+  h1 small {
+    font-size: 35px;
+  }
+  h2 {
+    line-height: 51px;
+  }
+  h3,
+  h2 small {
+    font-size: 29px;
+  }
+  h3,
+  .modal-header h3 {
+    line-height: 42px;
+  }
+  h4,
+  h3 small {
+    font-size: 23px;
+  }
+  h4 {
+    line-height: 33px;
+  }
+  h5,
+  h4 small {
+    font-size: 19px;
+  }
+  h5 {
+    line-height: 27px;
+  }
+  h6,
+  h5 small {
+    font-size: 16px;
+  }
+  h6 {
+    line-height: 22.5px;
+  }
+  h6 small {
+    font-size: 13px;
+  }
+  blockquote p {
+    font-size: 20px;
+  }
+  legend,
+  .lead {
+    font-size: 27px;
+    line-height: 39px;
+  }
+  legend small {
+    font-size: 18px;
+  }
+  code,
+  pre,
+  .label,
+  .badge {
+    font-size: 15px;
+    line-height: 21px;
+  }
+  .btn-mini,
+  .btn-group > .btn-mini,
+  .pagination-mini ul > li > a,
+  .pagination-mini ul > li > span {
+    font-size: 13px;
+  }
+  .btn-small,
+  .btn-group > .btn-small,
+  .pagination-small ul > li > a,
+  .pagination-small ul > li > span {
+    font-size: 15px;
+  }
+  .btn-large,
+  .btn-group > .btn-large,
+  .pagination-large ul > li > a,
+  .pagination-large ul > li > span {
+    font-size: 20px;
+  }
+  .tooltip,
+  .nav-header {
+    font-size: 14px;
+  }
+  .nav-header {
+    line-height: 19.5px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a {
+    font-size: 19px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a,
+  .nav-collapse.collapse {
+    line-height: 38px;
+  }
+  .progress .bar {
+    font-size: 15px;
+  }
+  .hero-unit {
+    font-size: 21px;
+  }
+  .hero-unit,
+  .hero-unit li {
+    line-height: 30px;
+  }
+  .hero-unit h1 {
+    font-size: 56px;
+  }
+}
+
+@media (min-width: 1760px) and (max-width: 2079px) {
+  body,
+  label,
+  input,
+  button,
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input,
+  .input-append input,
+  .input-prepend input,
+  .input-append select,
+  .input-prepend select,
+  .input-append .uneditable-input,
+  .input-prepend .uneditable-input,
+  .input-append .dropdown-menu,
+  .input-prepend .dropdown-menu,
+  .input-append .popover,
+  .input-prepend .popover,
+  .input-append .add-on,
+  .input-prepend .add-on,
+  .btn,
+  .btn-group > .btn,
+  .btn-group > .dropdown-menu,
+  .btn-group > .popover,
+  .navbar-search .search-query,
+  .popover-title {
+    font-size: 15px;
+    line-height: 21px;
+  }
+  address,
+  blockquote small,
+  li,
+  dt,
+  dd,
+  .table th,
+  .table td,
+  .dropdown-menu > li > a,
+  .nav-tabs > li > a,
+  .nav-pills > li > a,
+  .pagination ul > li > a,
+  .pagination ul > li > span {
+    line-height: 21px;
+  }
+  h1 {
+    font-size: 39px;
+    line-height: 57px;
+  }
+  h2,
+  h1 small {
+    font-size: 33px;
+  }
+  h2 {
+    line-height: 48px;
+  }
+  h3,
+  h2 small {
+    font-size: 27px;
+  }
+  h3,
+  .modal-header h3 {
+    line-height: 39px;
+  }
+  h4,
+  h3 small {
+    font-size: 21px;
+  }
+  h4 {
+    line-height: 30px;
+  }
+  h5,
+  h4 small {
+    font-size: 18px;
+  }
+  h5 {
+    line-height: 25.5px;
+  }
+  h6,
+  h5 small {
+    font-size: 15px;
+  }
+  h6 {
+    line-height: 21px;
+  }
+  h6 small {
+    font-size: 12px;
+  }
+  blockquote p {
+    font-size: 19px;
+  }
+  legend,
+  .lead {
+    font-size: 25px;
+    line-height: 36px;
+  }
+  legend small {
+    font-size: 17px;
+  }
+  code,
+  pre,
+  .label,
+  .badge {
+    font-size: 14px;
+    line-height: 19.5px;
+  }
+  .btn-mini,
+  .btn-group > .btn-mini,
+  .pagination-mini ul > li > a,
+  .pagination-mini ul > li > span {
+    font-size: 12px;
+  }
+  .btn-small,
+  .btn-group > .btn-small,
+  .pagination-small ul > li > a,
+  .pagination-small ul > li > span {
+    font-size: 14px;
+  }
+  .btn-large,
+  .btn-group > .btn-large,
+  .pagination-large ul > li > a,
+  .pagination-large ul > li > span {
+    font-size: 19px;
+  }
+  .tooltip,
+  .nav-header {
+    font-size: 13px;
+  }
+  .nav-header {
+    line-height: 18px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a {
+    font-size: 18px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a,
+  .nav-collapse.collapse {
+    line-height: 38px;
+  }
+  .progress .bar {
+    font-size: 14px;
+  }
+  .hero-unit {
+    font-size: 20px;
+  }
+  .hero-unit,
+  .hero-unit li {
+    line-height: 28.5px;
+  }
+  .hero-unit h1 {
+    font-size: 53px;
+  }
+}
+
+/* Medium-res ------------------------------------------------------- */
+
+@media (min-width: 1440px) and (max-width: 1759px) {
+  body,
+  label,
+  input,
+  button,
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input,
+  .input-append input,
+  .input-prepend input,
+  .input-append select,
+  .input-prepend select,
+  .input-append .uneditable-input,
+  .input-prepend .uneditable-input,
+  .input-append .dropdown-menu,
+  .input-prepend .dropdown-menu,
+  .input-append .popover,
+  .input-prepend .popover,
+  .input-append .add-on,
+  .input-prepend .add-on,
+  .btn,
+  .btn-group > .btn,
+  .btn-group > .dropdown-menu,
+  .btn-group > .popover,
+  .navbar-search .search-query,
+  .popover-title {
+    font-size: 14px;
+    line-height: 19.5px;
+  }
+  address,
+  blockquote small,
+  li,
+  dt,
+  dd,
+  .table th,
+  .table td,
+  .dropdown-menu > li > a,
+  .nav-tabs > li > a,
+  .nav-pills > li > a,
+  .pagination ul > li > a,
+  .pagination ul > li > span {
+    line-height: 19.5px;
+  }
+  h1 {
+    font-size: 37px;
+    line-height: 54px;
+  }
+  h2,
+  h1 small {
+    font-size: 31px;
+  }
+  h2 {
+    line-height: 45px;
+  }
+  h3,
+  h2 small {
+    font-size: 25px;
+  }
+  h3,
+  .modal-header h3 {
+    line-height: 36px;
+  }
+  h4,
+  h3 small {
+    font-size: 20px;
+  }
+  h4 {
+    line-height: 28.5px;
+  }
+  h5,
+  h4 small {
+    font-size: 17px;
+  }
+  h5 {
+    line-height: 24px;
+  }
+  h6,
+  h5 small {
+    font-size: 14px;
+  }
+  h6 {
+    line-height: 19.5px;
+  }
+  h6 small {
+    font-size: 11px;
+  }
+  blockquote p {
+    font-size: 18px;
+  }
+  legend,
+  .lead {
+    font-size: 23px;
+    line-height: 33px;
+  }
+  legend small {
+    font-size: 16px;
+  }
+  code,
+  pre,
+  .label,
+  .badge {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .btn-mini,
+  .btn-group > .btn-mini,
+  .pagination-mini ul > li > a,
+  .pagination-mini ul > li > span {
+    font-size: 11px;
+  }
+  .btn-small,
+  .btn-group > .btn-small,
+  .pagination-small ul > li > a,
+  .pagination-small ul > li > span {
+    font-size: 13px;
+  }
+  .btn-large,
+  .btn-group > .btn-large,
+  .pagination-large ul > li > a,
+  .pagination-large ul > li > span {
+    font-size: 18px;
+  }
+  .tooltip,
+  .nav-header {
+    font-size: 12px;
+  }
+  .nav-header {
+    line-height: 16.5px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a {
+    font-size: 17px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a,
+  .nav-collapse.collapse {
+    line-height: 38px;
+  }
+  .progress .bar {
+    font-size: 13px;
+  }
+  .hero-unit {
+    font-size: 19px;
+  }
+  .hero-unit,
+  .hero-unit li {
+    line-height: 27px;
+  }
+  .hero-unit h1 {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 1120px) and (max-width: 1439px) {
+  body,
+  label,
+  input,
+  button,
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input,
+  .input-append input,
+  .input-prepend input,
+  .input-append select,
+  .input-prepend select,
+  .input-append .uneditable-input,
+  .input-prepend .uneditable-input,
+  .input-append .dropdown-menu,
+  .input-prepend .dropdown-menu,
+  .input-append .popover,
+  .input-prepend .popover,
+  .input-append .add-on,
+  .input-prepend .add-on,
+  .btn,
+  .btn-group > .btn,
+  .btn-group > .dropdown-menu,
+  .btn-group > .popover,
+  .navbar-search .search-query,
+  .popover-title {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  address,
+  blockquote small,
+  li,
+  dt,
+  dd,
+  .table th,
+  .table td,
+  .dropdown-menu > li > a,
+  .nav-tabs > li > a,
+  .nav-pills > li > a,
+  .pagination ul > li > a,
+  .pagination ul > li > span {
+    line-height: 18px;
+  }
+  h1 {
+    font-size: 35px;
+    line-height: 51px;
+  }
+  h2,
+  h1 small {
+    font-size: 29px;
+  }
+  h2 {
+    line-height: 42px;
+  }
+  h3,
+  h2 small {
+    font-size: 23px;
+  }
+  h3,
+  .modal-header h3 {
+    line-height: 33px;
+  }
+  h4,
+  h3 small {
+    font-size: 19px;
+  }
+  h4 {
+    line-height: 27px;
+  }
+  h5,
+  h4 small {
+    font-size: 16px;
+  }
+  h5 {
+    line-height: 22.5px;
+  }
+  h6,
+  h5 small {
+    font-size: 13px;
+  }
+  h6 {
+    line-height: 18px;
+  }
+  h6 small {
+    font-size: 10.5px;
+  }
+  blockquote p {
+    font-size: 17px;
+  }
+  legend,
+  .lead {
+    font-size: 21px;
+    line-height: 30px;
+  }
+  legend small {
+    font-size: 15px;
+  }
+  code,
+  pre,
+  .label,
+  .badge {
+    font-size: 12px;
+    line-height: 16.5px;
+  }
+  .btn-mini,
+  .btn-group > .btn-mini,
+  .pagination-mini ul > li > a,
+  .pagination-mini ul > li > span {
+    font-size: 10.5px;
+  }
+  .btn-small,
+  .btn-group > .btn-small,
+  .pagination-small ul > li > a,
+  .pagination-small ul > li > span {
+    font-size: 12px;
+  }
+  .btn-large,
+  .btn-group > .btn-large,
+  .pagination-large ul > li > a,
+  .pagination-large ul > li > span {
+    font-size: 17px;
+  }
+  .tooltip,
+  .nav-header {
+    font-size: 11px;
+  }
+  .nav-header {
+    line-height: 15px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a {
+    font-size: 16px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a,
+  .nav-collapse.collapse {
+    line-height: 38px;
+  }
+  .progress .bar {
+    font-size: 12px;
+  }
+  .hero-unit {
+    font-size: 18px;
+  }
+  .hero-unit,
+  .hero-unit li {
+    line-height: 25.5px;
+  }
+  .hero-unit h1 {
+    font-size: 47px;
+  }
+}
+
+/* Low-res ---------------------------------------------------------- */
+
+@media (min-width: 800px) and (max-width: 1119px) {
+  body,
+  label,
+  input,
+  button,
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input,
+  .input-append input,
+  .input-prepend input,
+  .input-append select,
+  .input-prepend select,
+  .input-append .uneditable-input,
+  .input-prepend .uneditable-input,
+  .input-append .dropdown-menu,
+  .input-prepend .dropdown-menu,
+  .input-append .popover,
+  .input-prepend .popover,
+  .input-append .add-on,
+  .input-prepend .add-on,
+  .btn,
+  .btn-group > .btn,
+  .btn-group > .dropdown-menu,
+  .btn-group > .popover,
+  .navbar-search .search-query,
+  .popover-title {
+    font-size: 12px;
+    line-height: 16.5px;
+  }
+  address,
+  blockquote small,
+  li,
+  dt,
+  dd,
+  .table th,
+  .table td,
+  .dropdown-menu > li > a,
+  .nav-tabs > li > a,
+  .nav-pills > li > a,
+  .pagination ul > li > a,
+  .pagination ul > li > span {
+    line-height: 16.5px;
+  }
+  h1 {
+    font-size: 33px;
+    line-height: 48px;
+  }
+  h2,
+  h1 small {
+    font-size: 27px;
+  }
+  h2 {
+    line-height: 39px;
+  }
+  h3,
+  h2 small {
+    font-size: 21px;
+  }
+  h3,
+  .modal-header h3 {
+    line-height: 30px;
+  }
+  h4,
+  h3 small {
+    font-size: 18px;
+  }
+  h4 {
+    line-height: 25.5px;
+  }
+  h5,
+  h4 small {
+    font-size: 15px;
+  }
+  h5 {
+    line-height: 21px;
+  }
+  h6,
+  h5 small {
+    font-size: 12px;
+  }
+  h6 {
+    line-height: 16.5px;
+  }
+  h6 small {
+    font-size: 10px;
+  }
+  blockquote p {
+    font-size: 16px;
+  }
+  legend,
+  .lead {
+    font-size: 20px;
+    line-height: 28.5px;
+  }
+  legend small {
+    font-size: 14px;
+  }
+  code,
+  pre,
+  .label,
+  .badge {
+    font-size: 11px;
+    line-height: 15px;
+  }
+  .btn-mini,
+  .btn-group > .btn-mini,
+  .pagination-mini ul > li > a,
+  .pagination-mini ul > li > span {
+    font-size: 10px;
+  }
+  .btn-small,
+  .btn-group > .btn-small,
+  .pagination-small ul > li > a,
+  .pagination-small ul > li > span {
+    font-size: 11px;
+  }
+  .btn-large,
+  .btn-group > .btn-large,
+  .pagination-large ul > li > a,
+  .pagination-large ul > li > span {
+    font-size: 16px;
+  }
+  .tooltip,
+  .nav-header {
+    font-size: 10.5px;
+  }
+  .nav-header {
+    line-height: 14.25px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a {
+    font-size: 15px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a,
+  .nav-collapse.collapse {
+    line-height: 38px;
+  }
+  .progress .bar {
+    font-size: 11px;
+  }
+  .hero-unit {
+    font-size: 17px;
+  }
+  .hero-unit,
+  .hero-unit li {
+    line-height: 24px;
+  }
+  .hero-unit h1 {
+    font-size: 44px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 799px) {
+  body,
+  label,
+  input,
+  button,
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input,
+  .input-append input,
+  .input-prepend input,
+  .input-append select,
+  .input-prepend select,
+  .input-append .uneditable-input,
+  .input-prepend .uneditable-input,
+  .input-append .dropdown-menu,
+  .input-prepend .dropdown-menu,
+  .input-append .popover,
+  .input-prepend .popover,
+  .input-append .add-on,
+  .input-prepend .add-on,
+  .btn,
+  .btn-group > .btn,
+  .btn-group > .dropdown-menu,
+  .btn-group > .popover,
+  .navbar-search .search-query,
+  .popover-title {
+    font-size: 11px;
+    line-height: 15px;
+  }
+  address,
+  blockquote small,
+  li,
+  dt,
+  dd,
+  .table th,
+  .table td,
+  .dropdown-menu > li > a,
+  .nav-tabs > li > a,
+  .nav-pills > li > a,
+  .pagination ul > li > a,
+  .pagination ul > li > span {
+    line-height: 15px;
+  }
+  h1 {
+    font-size: 31px;
+    line-height: 45px;
+  }
+  h2,
+  h1 small {
+    font-size: 25px;
+  }
+  h2 {
+    line-height: 36px;
+  }
+  h3,
+  h2 small {
+    font-size: 20px;
+  }
+  h3,
+  .modal-header h3 {
+    line-height: 28.5px;
+  }
+  h4,
+  h3 small {
+    font-size: 17px;
+  }
+  h4 {
+    line-height: 24px;
+  }
+  h5,
+  h4 small {
+    font-size: 14px;
+  }
+  h5 {
+    line-height: 19.5px;
+  }
+  h6,
+  h5 small {
+    font-size: 11px;
+  }
+  h6 {
+    line-height: 15px;
+  }
+  h6 small {
+    font-size: 9.5px;
+  }
+  blockquote p {
+    font-size: 15px;
+  }
+  legend,
+  .lead {
+    font-size: 19px;
+    line-height: 27px;
+  }
+  legend small {
+    font-size: 13px;
+  }
+  code,
+  pre,
+  .label,
+  .badge {
+    font-size: 10.5px;
+    line-height: 14.25px;
+  }
+  .btn-mini,
+  .btn-group > .btn-mini,
+  .pagination-mini ul > li > a,
+  .pagination-mini ul > li > span {
+    font-size: 9.5px;
+  }
+  .btn-small,
+  .btn-group > .btn-small,
+  .pagination-small ul > li > a,
+  .pagination-small ul > li > span {
+    font-size: 10.5px;
+  }
+  .btn-large,
+  .btn-group > .btn-large,
+  .pagination-large ul > li > a,
+  .pagination-large ul > li > span {
+    font-size: 15px;
+  }
+  .tooltip,
+  .nav-header {
+    font-size: 10px;
+  }
+  .nav-header {
+    line-height: 13.5px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a {
+    font-size: 14px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a,
+  .nav-collapse.collapse {
+    line-height: 38px;
+  }
+  .progress .bar {
+    font-size: 10.5px;
+  }
+  .hero-unit {
+    font-size: 16px;
+  }
+  .hero-unit,
+  .hero-unit li {
+    line-height: 22.5px;
+  }
+  .hero-unit h1 {
+    font-size: 41px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 639px) {
+  body,
+  label,
+  input,
+  button,
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input,
+  .input-append input,
+  .input-prepend input,
+  .input-append select,
+  .input-prepend select,
+  .input-append .uneditable-input,
+  .input-prepend .uneditable-input,
+  .input-append .dropdown-menu,
+  .input-prepend .dropdown-menu,
+  .input-append .popover,
+  .input-prepend .popover,
+  .input-append .add-on,
+  .input-prepend .add-on,
+  .btn,
+  .btn-group > .btn,
+  .btn-group > .dropdown-menu,
+  .btn-group > .popover,
+  .navbar-search .search-query,
+  .popover-title {
+    font-size: 10.5px;
+    line-height: 14.25px;
+  }
+  address,
+  blockquote small,
+  li,
+  dt,
+  dd,
+  .table th,
+  .table td,
+  .dropdown-menu > li > a,
+  .nav-tabs > li > a,
+  .nav-pills > li > a,
+  .pagination ul > li > a,
+  .pagination ul > li > span {
+    line-height: 14.25px;
+  }
+  h1 {
+    font-size: 29px;
+    line-height: 42px;
+  }
+  h2,
+  h1 small {
+    font-size: 23px;
+  }
+  h2 {
+    line-height: 33px;
+  }
+  h3,
+  h2 small {
+    font-size: 19px;
+  }
+  h3,
+  .modal-header h3 {
+    line-height: 27px;
+  }
+  h4,
+  h3 small {
+    font-size: 16px;
+  }
+  h4 {
+    line-height: 22.5px;
+  }
+  h5,
+  h4 small {
+    font-size: 13px;
+  }
+  h5 {
+    line-height: 18px;
+  }
+  h6,
+  h5 small {
+    font-size: 10.5px;
+  }
+  h6 {
+    line-height: 14.25px;
+  }
+  h6 small {
+    font-size: 9px;
+  }
+  blockquote p {
+    font-size: 14px;
+  }
+  legend,
+  .lead {
+    font-size: 18px;
+    line-height: 25.5px;
+  }
+  legend small {
+    font-size: 12px;
+  }
+  code,
+  pre,
+  .label,
+  .badge {
+    font-size: 10px;
+    line-height: 13.5px;
+  }
+  .btn-mini,
+  .btn-group > .btn-mini,
+  .pagination-mini ul > li > a,
+  .pagination-mini ul > li > span {
+    font-size: 9px;
+  }
+  .btn-small,
+  .btn-group > .btn-small,
+  .pagination-small ul > li > a,
+  .pagination-small ul > li > span {
+    font-size: 10px;
+  }
+  .btn-large,
+  .btn-group > .btn-large,
+  .pagination-large ul > li > a,
+  .pagination-large ul > li > span {
+    font-size: 14px;
+  }
+  .tooltip,
+  .nav-header {
+    font-size: 9.5px;
+  }
+  .nav-header {
+    line-height: 12.75px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a {
+    font-size: 13px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a,
+  .nav-collapse.collapse {
+    line-height: 38px;
+  }
+  .progress .bar {
+    font-size: 10px;
+  }
+  .hero-unit {
+    font-size: 15px;
+  }
+  .hero-unit,
+  .hero-unit li {
+    line-height: 21px;
+  }
+  .hero-unit h1 {
+    font-size: 39px;
+  }
+}
+
+@media (max-width: 479px) {
+  body,
+  label,
+  input,
+  button,
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input,
+  .input-append input,
+  .input-prepend input,
+  .input-append select,
+  .input-prepend select,
+  .input-append .uneditable-input,
+  .input-prepend .uneditable-input,
+  .input-append .dropdown-menu,
+  .input-prepend .dropdown-menu,
+  .input-append .popover,
+  .input-prepend .popover,
+  .input-append .add-on,
+  .input-prepend .add-on,
+  .btn,
+  .btn-group > .btn,
+  .btn-group > .dropdown-menu,
+  .btn-group > .popover,
+  .navbar-search .search-query,
+  .popover-title {
+    font-size: 10px;
+    line-height: 13.5px;
+  }
+  address,
+  blockquote small,
+  li,
+  dt,
+  dd,
+  .table th,
+  .table td,
+  .dropdown-menu > li > a,
+  .nav-tabs > li > a,
+  .nav-pills > li > a,
+  .pagination ul > li > a,
+  .pagination ul > li > span {
+    line-height: 13.5px;
+  }
+  h1 {
+    font-size: 27px;
+    line-height: 39px;
+  }
+  h2,
+  h1 small {
+    font-size: 21px;
+  }
+  h2 {
+    line-height: 30px;
+  }
+  h3,
+  h2 small {
+    font-size: 18px;
+  }
+  h3,
+  .modal-header h3 {
+    line-height: 25.5px;
+  }
+  h4,
+  h3 small {
+    font-size: 15px;
+  }
+  h4 {
+    line-height: 21px;
+  }
+  h5,
+  h4 small {
+    font-size: 12px;
+  }
+  h5 {
+    line-height: 16.5px;
+  }
+  h6,
+  h5 small {
+    font-size: 10px;
+  }
+  h6 {
+    line-height: 13.5px;
+  }
+  h6 small {
+    font-size: 8.5px;
+  }
+  blockquote p {
+    font-size: 13px;
+  }
+  legend,
+  .lead {
+    font-size: 17px;
+    line-height: 24px;
+  }
+  legend small {
+    font-size: 11px;
+  }
+  code,
+  pre,
+  .label,
+  .badge {
+    font-size: 9.5px;
+    line-height: 12.75px;
+  }
+  .btn-mini,
+  .btn-group > .btn-mini,
+  .pagination-mini ul > li > a,
+  .pagination-mini ul > li > span {
+    font-size: 8.5px;
+  }
+  .btn-small,
+  .btn-group > .btn-small,
+  .pagination-small ul > li > a,
+  .pagination-small ul > li > span {
+    font-size: 9.5px;
+  }
+  .btn-large,
+  .btn-group > .btn-large,
+  .pagination-large ul > li > a,
+  .pagination-large ul > li > span {
+    font-size: 13px;
+  }
+  .tooltip,
+  .nav-header {
+    font-size: 9px;
+  }
+  .nav-header {
+    line-height: 12px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a {
+    font-size: 12px;
+  }
+  .navbar .brand,
+  .navbar .nav > li > a,
+  .nav-collapse.collapse {
+    line-height: 38px;
+  }
+  .progress .bar {
+    font-size: 9.5px;
+  }
+  .hero-unit {
+    font-size: 14px;
+  }
+  .hero-unit,
+  .hero-unit li {
+    line-height: 19.5px;
+  }
+  .hero-unit h1 {
+    font-size: 37px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* # User Picures */
+/* ------------------------------------------------------------------ */
+
+/* Hi-res ----------------------------------------------------------- */
+
+@media (min-width: 1600px) {
+  .usr {
+    width: 80px;
+    height: 80px;
+  }
+
+  .usr.small {
+    width: 64px;
+    height: 64px;
+  }
+
+  .usr.large {
+    width: 112px;
+    height: 112px;
+  }
+}
+
+/* Medium-res ------------------------------------------------------- */
+
+@media (min-width: 1280px) and (max-width: 1599px) {
+  .usr {
+    width: 64px;
+    height: 64px;
+  }
+
+  .usr.small {
+    width: 48px;
+    height: 48px;
+  }
+
+  .usr.large {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1279px) {
+  .usr {
+    width: 48px;
+    height: 48px;
+  }
+
+  .usr.small {
+    width: 32px;
+    height: 32px;
+  }
+
+  .usr.large {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Low-res ---------------------------------------------------------- */
+
+@media (min-width: 480px) and (max-width: 799px) {
+  .usr {
+    width: 40px;
+    height: 40px;
+  }
+
+  .usr.small {
+    width: 24px;
+    height: 24px;
+  }
+
+  .usr.large {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@ media (max-width: 479px) {
+  .usr {
+    width: 32px;
+    height: 32px;
+  }
+
+  .usr.small {
+    width: 16px;
+    height: 16px;
+  }
+
+  .usr.large {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* # Components Shaping */
+/* ------------------------------------------------------------------ */
+/*
+ * WARNING
+ * Empty for now.
+ * Will contain all the classes size adjustment like padding for buttons, inputs, forms, labels, etc.
+ */
+
+/* Hi-res ----------------------------------------------------------- */
+
+@media (min-width: 1600px) {
+  .header {
+    height: 256px;
+    line-height: 256px;
+    background-image: url(''), url(''), url('../img/header-2200x400.jpg');
+  }
+  .header.login {
+    background-image: url('../img/title.png'), url('../img/todoman-224x224.png'), url('../img/header-clouded-2200x400.jpg');
+  }
+  .header .logo {
+    width: 360px;
+    height: 180px;
+  }
+  .navbar-search .search-query {
+    width: 200px;
+  }
+  .navbar-connection {
+    width: 120px;
+  }
+  .status > li { /* TEMP : temporary status size adjustement */
+    height: 76px;
+  }
+  .status > li .topic { /* TEMP : temporary status size adjustement */
+    margin-left: 71px;
+  }
+  .status > li .event { /* TEMP : temporary status size adjustement */
+    height: 45px;
+    margin-left: 71px;
+    line-height: 22px;
+  }
+}
+
+/* Medium-res ------------------------------------------------------- */
+
+@media (min-width: 1280px) and (max-width: 1599px) {
+  .header {
+    height: 192px;
+    line-height: 192px;
+    background-image: url(''), url(''), url('../img/header-1600x280.jpg');
+  }
+  .header.login {
+    background-image: url('../img/title.png'), url('../img/todoman-176x176.png'), url('../img/header-clouded-1600x280.jpg');
+  }
+  .header .logo {
+    width: 280px;
+    height: 140px;
+  }
+  .navbar-search .search-query {
+    width: 160px;
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1279px) {
+  .header {
+    height: 160px;
+    line-height: 160px;
+    background-image: url(''), url(''), url('../img/header-1280x200.jpg');
+  }
+  .header.login {
+    background-image: url('../img/title.png'), url('../img/todoman-144x144.png'), url('../img/header-clouded-1280x200.jpg');
+  }
+  .navbar-search .search-query {
+    width: 120px;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1279px) {
+  .header .logo {
+    width: 256px;
+    height: 128px;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 959px) {
+  .header {
+    height: 160px;
+    line-height: 160px;
+    background-image: url(''), url(''), url('../img/header-1280x200.jpg');
+  }
+  .header.login {
+    background-image: url(''), url('../img/todoman-144x144.png'), url('../img/header-clouded-1280x200.jpg');
+  }
+  .navbar-search .search-query {
+    width: 100px;
+  }
+}
+
+/* Low-res ---------------------------------------------------------- */
+
+@media (min-width: 480px) and (max-width: 799px) {
+  .header {
+    height: 128px;
+    line-height: 128px;
+    background-image: url(''), url(''), url('../img/header-800x128.jpg');
+  }
+  .header.login {
+    background-image: url(''), url('../img/todoman-112x112.png'), url('../img/header-clouded-800x128.jpg');
+  }
+  .header .logo {
+    width: 192px;
+    height: 96px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 799px) {
+  .navbar-search .search-query {
+    width: 80px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 639px) {
+  .navbar-search .search-query {
+    width: 60px;
+  }
+}
+
+@media (max-width: 479px) {
+  .header {
+    height: 96px;
+    line-height: 96px;
+    background-image: url(''), url(''), url('../img/header-480x96.jpg');
+  }
+  .header.login {
+    background-image: url(''), url(''), url('../img/header-clouded-480x96.jpg');
+  }
+  .header .logo {
+    width: 128px;
+    height: 64px;
+  }
+  .navbar-search .search-query {
+    display: none;
+  }
+}
+

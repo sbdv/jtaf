@@ -1,21 +1,12 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
-				xmlns:panel="urn:import:org.jtaf.website.client.app.ui.views">
+				xmlns:panel="urn:import:org.jtaf.website.client.app.ui.views" xmlns:d="urn:import:com.google.gwt.dom.client">
 	<ui:style>
 	</ui:style>
-	<g:HTMLPanel>
-		<g:HTMLPanel stylePrimaryName="navbar navbar-inverse navbar-fixed-top">
-			<g:HTMLPanel stylePrimaryName="navbar-inner">
-	    		<panel:NavigationViewImpl />
-		    </g:HTMLPanel>
-		</g:HTMLPanel>
-	    <g:HTMLPanel stylePrimaryName="container">
 			<g:HTMLPanel stylePrimaryName="row-fluid">
-				<g:HTMLPanel stylePrimaryName="span4">
-					<g:HTMLPanel ui:field="baseProfil" stylePrimaryName="profile"/>
-				</g:HTMLPanel>
+				<!-- left side -->
+				<g:HTMLPanel ui:field="baseProfil" stylePrimaryName="span4"/>
+				<!-- wall -->
 				<g:HTMLPanel ui:field="baseWall" stylePrimaryName="span8" />
 			</g:HTMLPanel>
-		</g:HTMLPanel>
-	</g:HTMLPanel>
 </ui:UiBinder>

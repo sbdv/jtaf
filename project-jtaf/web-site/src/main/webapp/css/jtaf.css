@@ -1,75 +1,536 @@
-body{
-	padding-top: 50px;
-	padding-bottom: 40px;
-}
-.profile{
-	border: 1px solid rgb(192,192,192);
-	border-radius: 4px;
-	padding: 10px;
-	font-size: 12px;
-	background-color: rgb(240,244,248);
+/* 
+ * VERSION
+ * JTAF Cascading Style Sheet
+ * ver. beta 1
+ */
+
+/* ------------------------------------------------------------------ */
+/* # Frame */
+/* ------------------------------------------------------------------ */
+
+.frame {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 1280px;
+  min-height: 100%; /* TEMP : Used to prevent content overflow for low-res ; if navbar content > to screen width then elements go out below without background, very ugly if the navbar is set to the bottom, but it grants a minimal visibilty */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+ /* background-color: rgb(32, 32, 32);
+  background-image: url('../img/frame-background.png');
+  background-repeat: repeat-y;
+  background-position: 960px top; */
+  z-index: 1;
 }
 
-.status{
-	font-size: 12px;
-	border-bottom: 1px dotted rgba(96,152,232,0.5);
-	padding-bottom: 10px;
-}
-.status.first{
-	
-}
-.status.last{
-	border-bottom: 0;
-	padding-bottom: 5px;
-}
-.status th:FIRST-CHILD{
-	width: 70px;
+/* ------------------------------------------------------------------ */
+/* # Wrapper */
+/* ------------------------------------------------------------------ */
+
+.wrapper {
+  float: left;
+  width: 100%;
+  background-color: white;
 }
 
-.status .well{
-	padding: 5px;
-	margin-bottom: 0;
+/* ------------------------------------------------------------------ */
+/* # Header */
+/* ------------------------------------------------------------------ */
+
+.header {
+  height: 160px;
+  line-height: 160px;
+  border-bottom: 4px solid rgb(255, 192, 0);
+  background-color: rgb(112, 160, 224);
+  background-image: url(''), url(''), url('../img/header-1280x200.jpg');
+  background-position: center center, 95% center, 50% 0;
+  background-attachment: scroll, scroll, fixed;
+  background-repeat: no-repeat;
 }
 
-.status-content{
-	width: 100%;
-	display: table;
-	table-layout: fixed;
+.header.shift-down {
+  margin-top: 40px;
 }
-.status-container{
-	border-left: 1px solid rgb(192,192,192);
-	border-right: 1px solid rgb(192,192,192);
-	background-color: rgb(240,244,248);
-	padding: 5px 10px;
+
+.header.login {
+  background-image: url('../img/title.png'), url('../img/todoman.png'), url('../img/header-clouded-1280x200.jpg');
 }
-.status-container.first{
-	border-top: 1px solid rgb(192,192,192);
-	border-top-left-radius : 4px;
-	border-top-right-radius : 4px;
+
+.header .logo {
+  width: 256px;
+  height: 128px;
+  -webkit-transition: -webkit-transform .15s ease;
+     -moz-transition:    -moz-transform .15s ease;
+      -ms-transition:     -ms-transform .15s ease;
+       -o-transition:      -o-transform .15s ease;
+          transition:         transform .15s ease;
 }
-.status-container.last{
-	border-bottom: 1px solid rgb(192,192,192);
-	border-bottom-left-radius : 4px;
-	border-bottom-right-radius : 4px;
+
+.header .logo:hover {
+  -webkit-transform: rotate(8.5deg);
+     -moz-transform: rotate(8.5deg);
+      -ms-transform: rotate(8.5deg);
+       -o-transform: rotate(8.5deg);
+          transform: rotate(8.5deg);
 }
-.status-content *{
-	max-width: 100%;
+
+/* ------------------------------------------------------------------ */
+/* # Navbar */
+/* ------------------------------------------------------------------ */
+
+.navbar-inner {
+  max-width: 1280px;
+  max-height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
-.status-date{
-	color: white;
-	font-weight: bold;
-	background-color: rgb(96,152,232);
-	padding: 1px 4px;
+
+.navbar .home {
+  display: block;
+  float: left;
+  margin: 0 10px;
+  padding: 0;
+  font-family: 'arial_black', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 38px;
+  color: rgb(192, 192, 192);
+  color: rgba(128, 128, 128, .5);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, .5);
+  text-decoration: none;
+  -webkit-transition: color .15s linear;
+     -moz-transition: color .15s linear;
+       -o-transition: color .15s linear;
+          transition: color .15s linear;
 }
-.status-pseudo{
-	color: rgb(240,144,0);
-	font-weight: bold;
-	font-size: 13px;
+
+.navbar .home:hover,
+.navbar .home:focus {
+  color: rgb(80, 80, 80);
 }
-.status p{
-	border-width: 0;
+
+.navbar-inverse .home {
+  color: rgb(48, 48, 48);
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, .75), 1px 1px 0 rgba(255, 255, 255, .2); /* NEW */
 }
-.img-align{
-	margin-left:auto;
-	margin-right: auto;
+
+.navbar-inverse .home:hover,
+.navbar-inverse .home:focus {
+  color: rgb(255, 255, 255);
 }
+
+.navbar .brand {
+  float: right;
+  width: 40px;
+  height: 38px;
+  margin: 0 5px;
+}
+
+.navbar-connection {
+  width: 100px;
+  height: 38px;
+  line-height: 18px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+}
+
+.navbar-connection a {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  top: 0;
+  left: 0;
+  margin: 10px 0;
+  text-align: center;
+  -webkit-transition: color, -webkit-transform .15s ease-in;
+     -moz-transition:    color, -moz-transform .15s ease-in;
+      -ms-transition:     color, -ms-transform .15s ease-in;
+       -o-transition:      color, -o-transform .15s ease-in;
+          transition:         color, transform .15s ease-in;
+}
+
+.navbar-connection a:last-child {
+  top: -38px;
+}
+
+.navbar-connection a:hover,
+.navbar-connection a:focus {
+  text-decoration: none;
+}
+
+.navbar-connection a.active,
+.navbar-connection a.active:hover,
+.navbar-connection a.active:focus {
+  color: transparent;
+  -webkit-transform: scale(0, 0);
+     -moz-transform: scale(0, 0);
+      -ms-transform: scale(0, 0);
+       -o-transform: scale(0, 0);
+          transform: scale(0, 0);
+}
+
+/* ------------------------------------------------------------------ */
+/* # Sidebar */
+/* ------------------------------------------------------------------ */
+
+.sidebar {
+  display: table-cell;
+  width: 300px;
+  padding: 10px;
+}
+
+.sidebar .block-backdrop {
+  display: block;
+  width: auto;
+  margin-bottom: 10px;
+  padding: 12px;
+  padding: 10px \9; /* WARNING : to be applied only to IE8 and below */
+  background-color: rgb(255, 255, 240) \9; /* WARNING : to be applied only to IE8 and below */
+  border: 1px solid rgb(224, 208, 176) \9; /* WARNING : to be applied only to IE8 and below */
+  border-width: 12px;
+  -webkit-border-image: url('../img/sidebar-border-image.png') 12 / 12px round;
+     -moz-border-image: url('../img/sidebar-border-image.png') 12 / 12px round;
+       -o-border-image: url('../img/sidebar-border-image.png') 12  round;
+          border-image: url('../img/sidebar-border-image.png') 12 / 12px round;
+
+}
+
+.sidebar .block-backdrop:last-child {
+  margin-bottom: 0;
+}
+
+/* UNUSED for now ... */
+/*
+.sidebar .block-backdrop:nth-child(odd) {
+  background-color: rgba(255, 255, 0, 0.25);
+}
+
+.sidebar .block-backdrop:nth-child(even){
+  background-color: rgba(255, 0, 0, 0.25);
+}
+*/
+
+.sidebar .block {
+  padding: 5px;
+  color: rgb(128, 120, 96);
+  background-image: url('../img/sidebar-background.png');
+  background-repeat: repeat;
+  border-top: 1px dashed rgb(224, 208, 176);
+}
+
+.sidebar .block:first-child {
+  border-top: 0;
+}
+
+.sidebar .block *:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar .block h1,
+.sidebar .block h2,
+.sidebar .block h3,
+.sidebar .block h4,
+.sidebar .block h5,
+.sidebar .block h6 {
+  margin-top: 0;
+  color: rgb(112, 104, 80);
+}
+
+.sidebar .block a {
+  color: rgb(176, 144, 80);
+}
+
+/*
+.sidebar .block a:hover,
+.sidebar .block a:focus {
+  color: rgb(108, 96, 72);
+}
+*/
+
+.sidebar .block a:active {
+  color: rgb(192, 176, 144);
+  color: rgba(176, 144, 80, .5);
+}
+
+.sidebar .block ul {
+  margin-left: 15px;
+}
+
+/* ------------------------------------------------------------------ */
+/* # Content */
+/* ------------------------------------------------------------------ */
+
+.content {
+  display: table-cell;
+  width: 620px;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.content h1:first-of-type,
+.content h2:first-of-type,
+.content h3:first-of-type,
+.content h4:first-of-type,
+.content h5:first-of-type,
+.content h6:first-of-type {
+  margin-top: 0;
+}
+
+.content .block {
+  border-top: 1px dashed rgb(208, 208, 208);
+}
+
+.content .block:first-of-type {
+  border-top: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* # Statbar */
+/* ------------------------------------------------------------------ */
+
+.statbar {
+  float: right;
+  width: 320px;
+  z-index: 4;
+}
+
+.statbar.shift-down {
+  margin-top: 40px;
+}
+
+.statbar.shift-up {
+  margin-bottom: 40px;
+}
+
+.status {
+  margin: 5px 10px;
+  list-style: none;
+}
+
+.status > li {
+  height: 60px;
+  overflow: hidden;
+  border-bottom: 1px dotted rgb(176, 192, 240);
+  border-bottom-color: rgba(96, 144, 224, 0.5);
+}
+
+.status > li .usr {
+  margin-top: 5px;
+}
+
+.status > li:nth-child(odd) .usr {
+  float: left;
+}
+
+.status > li:nth-child(even) .usr {
+  float: left;
+}
+
+.status > li .topic {
+  display: block;
+  height: 20px;
+  margin-top: 5px;
+  line-height: 20px;
+}
+
+.status > li:nth-child(odd) .topic {
+  margin-left: 55px;
+}
+
+.status > li:nth-child(even) .topic {
+  margin-left: 55px;
+}
+
+.status > li .topic .username {
+  height: 20px;
+  padding: 0 5px;
+  color: rgb(208, 208, 208);
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, .25);
+  background-color: #69e; /* WARNING : RGB color bug ... */
+}
+
+.status > li:nth-child(odd) .topic .username {
+  float: left;
+}
+
+.status > li:nth-child(even) .topic .username {
+  float: left;
+}
+
+.status > li .topic .username a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.status > li .topic .username a:hover,
+.status > li .topic .username a:focus {
+  color: rgb(255, 192, 0);
+}
+
+.status > li .topic .username a:active {
+  color: rgb(208, 208, 208);
+}
+
+.status > li .topic .divider {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  color: transparent;
+  background-image: url('../img/status-topic-divider.png');
+  background-repeat: no-repeat;
+}
+
+.status > li:nth-child(odd) .topic .divider{
+  float: left;
+}
+
+.status > li:nth-child(even) .topic .divider{
+  float: left;
+}
+
+
+.status > li .topic .label {
+  display: block;
+  margin: 2px 5px 0;
+  padding: 0 5px;
+  height: 16px;
+  font-size: 80%;
+  line-height: 16px;
+}
+
+.status > li:nth-child(odd) .topic .label{
+  float: left;
+}
+
+.status > li:nth-child(even) .topic .label{
+  float: left;
+}
+
+.status > li .topic .date {
+  height: 20px;
+  padding: 0 5px;
+  color: rgb(64, 112, 176);
+}
+
+.status > li:nth-child(odd) .topic .date{
+  float: right;
+}
+
+.status > li:nth-child(even) .topic .date{
+  float: right;
+}
+
+.status > li .event {
+  display: block;
+  height: 30px;
+  margin-top: 0px;
+  font-size: 85%;
+  line-height: 15px;
+  overflow: hidden;
+}
+
+.status > li:nth-child(odd) .event {
+  margin-left: 55px;
+}
+
+.status > li:nth-child(even) .event {
+  margin-left: 55px;
+}
+
+/* ------------------------------------------------------------------ */
+/* # Footer */
+/* ------------------------------------------------------------------ */
+
+.footer {
+  float: left;
+  width: 1260px;
+  padding: 10px;
+  color: rgb(128, 128, 128);
+  background-color: rgb(32, 32, 32);
+}
+
+.footer.shift-up {
+  margin-bottom: 40px;
+}
+
+.footer section {
+  display: table-cell;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5,
+.footer h6 {
+  color: rgb(160, 160, 160);
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.footer a {
+  color: rgb(224, 224, 224);
+}
+
+.footer a:hover,
+.footer a:focus {
+  color: rgb(255, 192, 0);
+}
+
+.footer a:active,
+.footer .active,
+.footer .active:hover,
+.footer .active:focus {
+  color: rgb(144, 112, 0);
+}
+
+/* ------------------------------------------------------------------ */
+/* # Misc */
+/* ------------------------------------------------------------------ */
+
+.brand {
+  display: inline-block;
+  position: relative;
+  width: 75px;
+  height: 36px;
+  background-image: url('../img/logo-sbdv.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.brand:hover,
+.brand:focus {
+  animation: shake .1s ease-out;
+  animation-iteration-count: 3;
+  -webkit-transform: scale(1.25, 1.25);
+     -moz-transform: scale(1.25, 1.25);
+      -ms-transform: scale(1.25, 1.25);
+       -o-transform: scale(1.25, 1.25);
+          transform: scale(1.25, 1.25);
+  -webkit-transition: -webkit-transform .15s ease-in;
+     -moz-transition:    -moz-transform .15s ease-in;
+      -ms-transition:     -ms-transform .15s ease-in;
+       -o-transition:      -o-transform .15s ease-in;
+          transition:         transform .15s ease-in;
+}
+
+@keyframes shake {
+  from {left: 5px;}
+     to {left: -5px;}
+}
+
+/* TEMP TEST -------------------------------------------------------- */
+/*
+.sidebar {
+  display: none;
+}
+
+.content {
+  display: none;
+}
+*/

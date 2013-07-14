@@ -1,0 +1,144 @@
+/* 
+ * VERSION
+ * JTAF User Pictures Cascading Style Sheet
+ * ver. beta 1
+ *
+ * DESIGNER NOTE
+ * The main purpose of this style sheet is to avoid user pictures displaying for pure HTML browsing.
+ * Secondly, it allows easier user pictures framing and displaying ; especially for very low-res by permitting the size recucing or hidding of the user picure for space saving.
+ * Not at all, it mays have a hi-res utility by allowing a size increased displaying of the user pictures.
+ *
+ * WARNING
+ * The method used here is obviously not the better issue ; it's just the lighter one and the simplest for now ...
+ * A safer but awfully heavy method should be to create subfolder for ./img/usr/ folder as follow :
+ * ./img/usr/pool/ for original uploaded images by users
+ * ./img/usr/mini/ for 24x24 pixels user pictures
+ * ./img/usr/tiny/ for 32x32 pixels user pictures
+ * ./img/usr/small/ for 48x48 pixels user pictures
+ * ./img/usr/medium/ for 64x64 pixels user pictures
+ * ./img/usr/large/ for 96x96 pixels user pictures
+ * ./img/usr/huge/ for 128x128 pixels user pictures
+ * ./img/usr/maxi/ for 192x192 pixels user pictures
+ * This will provide a nice displaying of the images and avoid the incorrect bitmap interpolating of common browsers, but it requires a very louder server-side treatment.
+ * Next, this way of doing should be far more safer as the current one requires an editing of the .css file ; that mays indubitably cause page loading crashout.
+ * Finally, a good way to share out the benefits of two methods may be to use the HTML reference "style" to set the "backgroud-image: url('')" and use the user.css file classes only for shaping.
+ */
+
+/* ------------------------------------------------------------------ */
+/* # User Pictures Size */
+/* ------------------------------------------------------------------ */
+
+.usr { /* Main user picture class ; used as a mark-up indicator in other CSS files for borders and such effects (e.g. opacity) */
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain; /* WARNING : IE9+, Firefox 4+, Opera, Chrome and Safari 5+ */
+  -ms-interpolation-mode: bicubic;
+}
+
+.usr {
+  width: 64px;
+  height: 64px;
+}
+
+.usr.small {
+  width: 48px;
+  height: 48px;
+}
+
+.usr.large {
+  width: 96px;
+  height: 96px;
+}
+
+a:hover .usr,
+a:focus .usr {
+  opacity: .75;
+  filter: alpha(opacity=75);
+  -webkit-transition: opacity .15s ease-out;
+     -moz-transition: opacity .15s ease-out;
+      -ms-transition: opacity .15s ease-out;
+       -o-transition: opacity .15s ease-out;
+          transition: opacity .15s ease-out;
+}
+
+a:active .usr,
+a:active:focus .usr,
+a:active:hover .usr {
+  animation: spring .3s linear 1;
+}
+
+@keyframes spring {
+  from {
+    -webkit-transform: scale(1, 1);
+       -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+         -o-transform: scale(1, 1);
+            transform: scale(1, 1);
+    }
+  25% {
+    -webkit-transform: scale(.90, .90);
+       -moz-transform: scale(.90, .90);
+        -ms-transform: scale(.90, .90);
+         -o-transform: scale(.90, .90);
+            transform: scale(.90, .90);
+  }
+  50% {
+    -webkit-transform: scale(1.05, 1.05);
+       -moz-transform: scale(1.05, 1.05);
+        -ms-transform: scale(1.05, 1.05);
+         -o-transform: scale(1.05, 1.05);
+            transform: scale(1.05, 1.05);
+   }
+
+  to {
+    -webkit-transform: scale(1, 1);
+       -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+         -o-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* # User Pictures Location */
+/* ------------------------------------------------------------------ */
+
+/* Reserved : 0000-0009 --------------------------------------------- */
+
+.usr.pic0000 {}
+
+/* Admins : 0010-0099 ----------------------------------------------- */
+
+.usr.pic0010 { /* JTAF */
+  background-image: url('../img/usr/jtaf.png');
+}
+
+/* Groups : 0100-0999 ----------------------------------------------- */
+
+.usr.pic0100 { /* TEST */
+  background-image: url('../img/usr/groupe-test.png');
+}
+
+/* Users : 1000-9999 ------------------------------------------------ */
+
+.usr.pic1000 { /* Renard */
+  background-image: url('../img/usr/renard.png');
+}
+
+.usr.pic1001 { /* Ornithorynque */
+  background-image: url('../img/usr/orni.png');
+}
+
+.usr.pic1002 { /* Etoile de mer */
+  background-image: url('../img/usr/etoile.png');
+}
+
+.usr.pic1003 { /* Panda */
+  background-image: url('../img/usr/panda.png');
+}
+
+.usr.pic1004 { /* Koala */
+  background-image: url('../img/usr/koala.png');
+}
+

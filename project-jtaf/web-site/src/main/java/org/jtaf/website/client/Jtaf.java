@@ -20,7 +20,7 @@ public class Jtaf implements EntryPoint {
         injector.getActivityManager().setDisplay(basePanel);
         injector.getPlaceHistoryHandler().register(injector.getPlaceController(), injector.getEventBus(),
                 new HomePlace("Home"));
-        RootPanel.get().add(basePanel);
+        RootPanel.get("content").add(basePanel);
         injector.getPlaceHistoryHandler().handleCurrentHistory();
 
     }

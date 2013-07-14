@@ -3,8 +3,7 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>		
 	</ui:style>
-	<g:HTMLPanel ui:field="container" stylePrimaryName="status-container row-fluid">
-		<g:HTMLPanel ui:field="status" stylePrimaryName="status">
+		<g:HTMLPanel ui:field="status" stylePrimaryName="status-container row-fluid">
 			<table>
 				<tr>
 					<th rowspan="3" style="padding-right:10px;">
@@ -26,5 +25,4 @@
 				</tr>
 			</table>
 		</g:HTMLPanel>
-	</g:HTMLPanel>
 </ui:UiBinder> 

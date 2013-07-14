@@ -21,6 +21,145 @@
         in order for this application to display correctly.
       </div>
     </noscript>
+    <div class="frame">
+
+      <!--------------------------------------------------------------->
+      <!-- Wrapper : contains Header, Navbar, Sidebar and Content -->
+      <!--------------------------------------------------------------->
+
+      <div class="wrapper">
+
+        <!------------------------------------------------------------->
+        <!-- Header : add the class 'login' to display the full background containing title and todoman -->
+        <!------------------------------------------------------------->
+
+        <header id="header" class="header shift-down">
+          <a href="index.html"><img src="img/logo-jtaf.png" class="logo" alt="JTAF.org&nbsp;: Le Jeu des Trucs À Faire"></a>
+          <h1 class="hide">Le Jeu des Trucs à faire</h1>
+        </header>
+
+        <!------------------------------------------------------------->
+        <!-- Navbar -->
+        <!------------------------------------------------------------->
+
+        <nav id="navbar" class="navbar navbar-fixed-top navbar-inverse">
+
+          <h2 class="hide">Navigation</h2>
+
+          <div class="navbar-inner">
+
+            <!-- Expand Menu Button -->
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+
+            <!-- JTAF and SBDB -->
+            <span class="hide">Le </span><a href="index.html" class="home pull-left">JTAF</a><span class="hide"> est un jeu </span><a href="http://www.sansbutdanslavie.com/" class="brand"><span class="hide">SBDV</span></a><span class="hide">.</span>
+
+            <h3 class="hide">Rechercher</h3>
+
+            <!-- Search Form -->
+            <form class="navbar-search pull-right">
+              <input class="search-query" placeholder="Rechercher&nbsp;…" type="text">
+            </form>
+
+            <h3 class="hide">Connexion</h3>
+
+            <!-- Connection -->
+            <div class="navbar-connection pull-right" style="">
+              <a href="#" id="login" class="" style="" onclick="
+                add_class('header', 'login');
+                set_class('login', 'active');
+                set_class('logout', '');
+              "><b>Connexion</b></a>
+              <span class="hide"> | </span>
+              <a href="#" id="logout" class="active" style="" onclick="
+                remove_class('header', 'login');
+                set_class('logout', 'active');
+                set_class('login', '');
+              "><b>Déconnexion</b></a>
+            </div>
+
+            <h3 class="hide">Menu principal</h3>
+
+            <!-- Main Menu -->
+            <div class="nav-collapse collapse pull-left">
+              <ul class="nav">
+                <li id="nav1" class="">
+                  <a href="#" onclick="set_class('nav1', 'active', '', 4);">Jeux</a>
+                </li>
+                <li id="nav2" class="">
+                  <a href="#" onclick="set_class('nav2', 'active', '', 4);">Groupes</a>
+                </li>
+                <li id="nav3" class="">
+                  <a href="#" onclick="set_class('nav3', 'active', '', 4);">Règles</a>
+                </li>
+                <li id="nav4" class="">
+                  <a href="#" onclick="set_class('nav4', 'active', '', 4);">Contact</a>
+                </li>
+              </ul>
+            </div>
+
+          </div><!-- Navbar Inner -->
+
+        </nav><!-- Navbar -->
+
+
+        <!------------------------------------------------------------->
+        <!-- Content -->
+        <!------------------------------------------------------------->
+
+        <div id="content">          
+        </div><!-- Content -->
+        
+       <!--------------------------------------------------------------->
+      <!-- Footer -->
+      <!--------------------------------------------------------------->
+      <footer id="footer" class="footer">
+
+        <h2 class="hide">Liens</h2>
+
+        <div class="row-fluid">
+
+          <!-- Footer Section #1 -->
+          <section id="about" class="span6">
+            <h4>À propos</h4>
+            <p>Fruit d'une recherche incroyable, le JTAF est né grâce au regroupement d’une communauté lassée de ne pouvoir réaliser ses rêves les plus fous. Dans la pure lignée des jeux <a href="http://www.sansbutdanslavie.com">SBDV&nbsp;©</a> le JTAF saura vous plaire&nbsp;!</p>
+            <a href="http://www.sansbutdanslavie.com/" class="brand"><span class="hide"></span></a>
+          </section>
+
+          <!-- Footer Section #2 -->
+          <section id="blogroll" class="span3">
+            <h4>Liens SBDV</h4>
+            <ul>
+              <li><a href="http://www.sansbutdanslavie.com">Le site SBDV</a></li>
+              <li><a href="#">Le jeu des PAN&nbsp;!</a></li> 
+              <li><a href="http://www.buffalo-game.com">Buffalo Game</a></li>
+              <li><a href="#">La girouette du destin</a></li>
+              <li><a href="#">Le jeu des Points</a></li>
+            </ul>
+          </section>
+
+          <!-- Footer Section #3 -->
+          <section id="popular" class="span3">
+            <h4>Liens internes</h4>
+            <ul>
+              <li><a href="#">Contactez-nous</a></li>
+              <li><a href="#">Plan du site</a></li>
+              <li><a href="#">Informations légales</a></li>
+            </ul>
+          </section>
+
+        </div>
+
+      </footer><!-- Page Footer-->
+
+      </div><!-- Wrapper -->
+      
+     
+    </div>
 
 
   </body>
